@@ -42,6 +42,8 @@
 
 \newcommand{\ZZ}{\mathbb{Z}}
 
+\newcommand{\ann}{\oper{ann}}
+\newcommand{\coker}{\oper{coker}}
 
 \begin{document}
 
@@ -55,7 +57,6 @@
 \tableofcontents
 
 
-\newcommand{\ann}{\oper{ann}}
 
 \section{Preliminaries}
 
@@ -637,5 +638,54 @@ then $\til f_{i, j}(\alpha) = c_{i, j} = 0$ for all $i, j$, showing that
 these are indeed independent.
 \end{proof}
 
+\subsection{Base extension of maps}
+
+\begin{defn}
+Given a ring extension $R \subset S$ and a homomorphism of left $R$-modules
+$f : M \to N$, we define 
+\[S \otimes f : S \otimes_R M \to S \otimes_R N\]
+to be the map given by $S \otimes f (s \otimes m) = s \otimes f(m)$, and
+then extending by linearity to general elements of the tensor product.
+\end{defn}
+
+\begin{lem}
+Suppose that $L/F$ is a field extension, and $V$ is a vector space over
+$F$ with basis $\{v_i\}$. Then $\{1 \otimes v_i\}$ is a basis for $L
+\otimes V$.
+\end{lem}
+\begin{proof}
+It is easy to see that the elements $1 \otimes v_i$ span $L \otimes V$ over
+$L$. To see that they are independent over $L$, consider an expression 
+\[\alpha = \sum x_i \otimes v_i, \] 
+with $x_i \in L$ for each $i$.
+
+For any $j$, we may consider the function 
+\[\phi_j: L \times V \to L\]
+via $\phi_j(x, \sum a_i v_i) = xa_j$. Note that this is a bilinear map of
+$F$-vector spaces, and hence defines an $F$-linear transformation $\til
+phi_j: L \times V \to L$. 
+
+We compute that $\phi_i(\alpha) = x_i$, and therefore if $\alpha = 0$, each
+$\phi_i(\alpha) = x_i = 0$ as claimed.
+\end{proof}
+
+\begin{lem}
+Suppose that $L/F$ is a field extension and $f : F^n \to F^m$ is a linear
+transformation represented by a matrix $(a_{i,j})$. Then $L \otimes f$ is
+represented by the matrix $(a_{i,j})$.
+\end{lem}
+
+\begin{lem}
+Suppose that $L/F$ is a field extension, and $f: V \to W$ is a linear
+transormation of $F$-vector spaces. Then
+\[ \ker L \otimes f = L \otimes_F \ker f, \ \ \coker L \otimes f = L
+\otimes_F \coker f \]
+\end{lem}
+\begin{proof}
+This follows from the fact that bases for both of these can be computed
+through Gaussian elimination using the matrix in some basis. Since the
+matrix doesen't change under extension of scalars, the kernel and cokernel
+have the corresponding basis over $F$ and $L$.
+\end{proof}
 
 \end{document}
