@@ -206,25 +206,26 @@ $P$ and $M/P$ are also semisimple. Further, we may find a submodule $L
 We note that the finite dimensionality assumption is not necessary if one
 appeals to Zorn's Lemma, but we will keep it for simplicity of exposition.
 \begin{proof}
-Let $Q < M/P$ be maximal dimensional so that $Q$
-is semisimple. Arguing by contradiction, assume that $Q \neq M/P$. It
-follows that we may find some $P_i$ with the image of $P_i$ in $M/P$ (i.e.
-$(P_i + P)/P$ not contained in $Q$. Set $Q_i = (P_i + P)/P$. Then as
-before, we have $Q \oplus Q_i < M/P$ a semisimple module of larger
-dimension.
+Since $M$ is semisimple, we may write $M = \oplus M_i$ where $M_i$ are
+simple. By finite dimensionality, the number of summands is finite.  Let $Q
+< M/P$ be maximal dimensional so that $Q$ is semisimple. Arguing by
+contradiction, assume that $Q \neq M/P$. It follows that we may find some
+$M_i$ with the image of $M_i$ in $M/P$ (i.e.  $(M_i + P)/P$ not contained
+in $Q$. Set $Q_i = (M_i + P)/P$. Then as before, we have $Q \oplus Q_i <
+M/P$ a semisimple module of larger dimension.
 
 For the remaining parts, choose $k$ minimal such that there exists a
 decomposition $M = \oplus_{i = 1}^n M_i$ with each $M_i$ simple, such that the
 projection $\pi: P \to M \to N = \oplus_{i = 1}^k M_i$ is injective. We claim
 that $\pi$ is an isomorphism. It suffices to show that it is surjective.
-Regarding $M_i$ as a submodule of $N$, we note that $\pi P \cap M_i \neq 0$ for each $i$, since otherwise,
-the projection onto $\oplus_{\stackrel{j = 1}{j \neq i}}^k M_j$ would still
-be injective, contradicting the minimality of $k$. It therefore follows
-that, since $M_i$ is simple, each $M_i$ is a submodule of $\pi P$, for $i
-= 1, \ldots, k$, and
-hence $N \subset \pi P$. But since the reverse inclusion holds by
-definition, we have $\pi P = N$ and hence $\pi$ is bijective. This gives an
-isomorphism $N \cong P$, proving the semismiplicity of $P$.
+Regarding $M_i$ as a submodule of $N$, we note that $\pi P \cap M_i \neq 0$
+for each $i$, since otherwise, the projection onto $\oplus_{\stackrel{j =
+1}{j \neq i}}^k M_j$ would still be injective, contradicting the minimality
+of $k$. It therefore follows that, since $M_i$ is simple, each $M_i$ is a
+submodule of $\pi P$, for $i = 1, \ldots, k$, and hence $N \subset \pi P$.
+But since the reverse inclusion holds by definition, we have $\pi P = N$
+and hence $\pi$ is bijective. This gives an isomorphism $N \cong P$,
+proving the semismiplicity of $P$.
 
 Finally, consider $L = \oplus_{i = k+1}^n M_i$. We claim that $L \cap P =
 0$. To see this, suppose that $x \in L \cap P$. Then by
