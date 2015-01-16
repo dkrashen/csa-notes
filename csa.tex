@@ -1,5 +1,5 @@
 
-\documentclass[12pt]{amsart}
+\documentclass[12pt]{report}
 
 \usepackage{amsmath,amsthm,amsfonts,amscd,amssymb,epsfig,color,enumerate}
 \usepackage{fullpage}
@@ -7,7 +7,7 @@
 
 \theoremstyle{plain}
 
-\newtheorem{thm}{Theorem}[subsection]
+\newtheorem{thm}{Theorem}[section]
 \newtheorem{defn}[thm]{Definition}
 \newtheorem{notn}[thm]{Notation}
 \newtheorem{lem}[thm]{Lemma}
@@ -58,16 +58,16 @@
 
 
 
-\section{Preliminaries}
+\chapter{Preliminaries}
 
-\subsection{Rings and conventions}
+\section{Rings and conventions}
 
 Rings are not necessarily commutative. They are always assumed to be
 associative and unital. Ring homomorphisms are required to be unital. The
 elements $1$ and $0$ need not be distinct. The ring $R$ itself is a
 (non-proper) ideal.
 
-\subsection{Modules and bimodules}
+\section{Modules and bimodules}
 
 \begin{defn}
 Let $R$ be a ring. A left $R$-module is a set $M$ together with a binary
@@ -134,9 +134,9 @@ We will write $_R M_S$ to denote the fact that $M$ is an $R-S$ bimodule.
 \end{notn}
 
 
-\section{Some Structure Theory}
+\chapter{Some Structure Theory}
 
-\subsection{Simple and Semisimple Modules}
+\section{Simple and Semisimple Modules}
 
 \begin{defn}
 Let $R$ be a ring. We say that a left $R$-module $P$ is simple if it is nonzero
@@ -239,7 +239,7 @@ consequently, we have $p = n + x$ for $x \in L$. We therefore have
 as desired.
 \end{proof}
 
-\subsection{Semiprimitive Algebras}
+\section{Semiprimitive Algebras}
 
 \begin{defn}
 Let $R$ be a ring. We define $J_r(R)$ (respectively $J_\ell(R)$), the right
@@ -284,7 +284,7 @@ submodule of a semisimple module. By Proposition~\ref{semisimple sub quot},
 it follows that $A_A$ is semisimple as desired. 
 \end{proof}
 
-\subsection{An ambidextrous characterization of the Jacobson radical}
+\section{An ambidextrous characterization of the Jacobson radical}
 
 Recall that $r \in R$ is called left invertible if there is some $s \in R$ so
 that $sr = 1$, and right invertible if there is some $t \in R$ so that $rt
@@ -404,7 +404,7 @@ It therefore makes sense to define the Jacobson radical of $R$, to be $J(R)
 We say that a ring $R$ is \textbf{semiprimitive} if $J(R) = 0$.
 \end{defn}
 
-\subsection{Endomorphisms: Schur and Wedderburn-Artin}
+\section{Endomorphisms: Schur and Wedderburn-Artin}
 
 The main observation of this section is that if $R$ is a ring, then
 regarding $R$ as a right module over itself, we have a natural
@@ -516,9 +516,12 @@ representation $A \cong \oplus_i M_{d_i}(D_i)$, contradicting the
 simplicity of $A$.
 \end{proof}
 
-\section{Tensors and commutators}
 
-\subsection{Tensor products}
+\appendix
+
+\chapter{Tensors and commutators}
+
+\section{Tensor products}
 
 \begin{defn}
 Let $R, S, T$ be rings, $_R M_S$, $_S N_T$, $_R P _T$ bimodules. We say
@@ -582,7 +585,7 @@ The map $M \times N \to M \otimes_S N$ sending $(m, n)$ to $m \otimes n$
 gives $M \otimes N$ the structure of a tensor product of $M$ and $N$. We
 refer to this as \textit{the} tensor product of $M$ and $N$.
 
-\subsection{Scalar extension}
+\section{Scalar extension}
 
 A particularly useful instance of the tensor product is when one has an
 extension of rings $R \subset S$ (or more generally, a homomorphism of
@@ -593,7 +596,7 @@ $S$ module (we are tensoring an $S-S$ bimodule with a $S-\ZZ$-bimodule).
 We refer to $S \otimes_R M$ as the scalar extension (or base change) of $M$
 to $S$.
 
-\subsection{Tensor products of vector spaces}
+\section{Tensor products of vector spaces}
 
 The tensor product of vector spaces is particularly easy to describe. Note
 first that if $V$ is an $F$-vector space, then since $F$ is commutative, we
@@ -638,7 +641,7 @@ then $\til f_{i, j}(\alpha) = c_{i, j} = 0$ for all $i, j$, showing that
 these are indeed independent.
 \end{proof}
 
-\subsection{Base extension of maps}
+\section{Base extension of maps}
 
 \begin{defn}
 Given a ring extension $R \subset S$ and a homomorphism of left $R$-modules
