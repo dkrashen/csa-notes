@@ -581,6 +581,61 @@ The map $M \times N \to M \otimes_S N$ sending $(m, n)$ to $m \otimes n$
 gives $M \otimes N$ the structure of a tensor product of $M$ and $N$. We
 refer to this as \textit{the} tensor product of $M$ and $N$.
 
+\subsection{Scalar extension}
+
+A particularly useful instance of the tensor product is when one has an
+extension of rings $R \subset S$ (or more generally, a homomorphism of
+rings $\phi : R \to S$), and a left $R$-module $M$. In this case, the
+tensor product $S \otimes_R M$ naturally inherets the structure of a left
+$S$ module (we are tensoring an $S-S$ bimodule with a $S-\ZZ$-bimodule).
+
+We refer to $S \otimes_R M$ as the scalar extension (or base change) of $M$
+to $S$.
+
+\subsection{Tensor products of vector spaces}
+
+The tensor product of vector spaces is particularly easy to describe. Note
+first that if $V$ is an $F$-vector space, then since $F$ is commutative, we
+may either regard $V$ as a right or as a left $F$-module. Doing both at
+once is also an option since $F$ is commutative, and in this way $V$ can be
+regarded as an $F-F$ bimodule. It follows then that the tensor product of
+vector spaces also inherets a natural vector space structure.
+
+To simplify our language (and comply with convention), we will refer to a
+$F-F-F$ linear function as simply a bilinear function.
+
+\begin{prop}
+Suppose that $V$ and $W$ are vector spaces over a field $F$ with bases
+$\{v_i\}$ and $\{w_j\}$ respectively. Then $V \otimes_F W$ is a vector
+space with basis $\{v_i \otimes w_j\}$.
+\end{prop}
+\begin{proof}
+It is clear that these elements span: by the definition of the tensor
+product, a typical element of $V \otimes_F W$ is of the form $\sum a_k
+\otimes b_k$ for some $a_k \in V, b_k \in W$. In particular, to see that
+our elements span, it suffices to show that any vector of the form $a
+\otimes b$ lies in the span. By definition, we may write
+\[ a = \sum a_i v_i, \ b = \sum b_j w_j \]
+and so
+\[ a \otimes b = (\sum a_i v_i) \otimes (\sum b_j w_j) = \sum_{i,j} a_i b_j
+v_i \otimes w_j \]
+is in the span, as claimed.
+
+To check independence, consider the function $f_{k,\ell} : V \times W \to F$
+defined by
+\[ f_{k, \ell} (\sum a_i v_i, \sum b_j w_j) = a_k b_\ell.\]
+It is easy to check that this is bilinear, and hence factors uniquely
+through the tensor product. Write $\til f_{k, \ell} : V \otimes W \to F$ as
+the induced linear transformation. We then have 
+$\til f_{k, \ell} (v_i \otimes w_j) = \delta_{(k, \ell), (i, j)}$ 
+and in particlar, 
+$\til f_{k, \ell}(\sum c_{i,j} v_i \otimes w_j) = c_{k, \ell}$.
+
+It follows that, if 
+\[\alpha = \sum c_{i, j} v_i \otimes w_j = 0\]
+then $\til f_{i, j}(\alpha) = c_{i, j} = 0$ for all $i, j$, showing that
+these are indeed independent.
+\end{proof}
 
 
 \end{document}
