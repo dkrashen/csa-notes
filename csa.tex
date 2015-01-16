@@ -569,6 +569,71 @@ b_j'\right)
 \end{align*}
 \end{proof}
 
+\section{Tensors and bimodules}
+
+Let $F$ be a field, $A$ and $B$ $F$-algebras. If $M$ is an $A-B$
+bimodule then we have algebra homomorphisms $A \to \End_F(M)$ and
+$B^{op} \to \End_F(M)$. The statement that these give a bimodule structure
+is exactly the statement the the images of these maps commute in the
+endomorphism ring. 
+
+\begin{prop}
+Let $A, B$ be $F$-algebras. Then we have natural equivalences between the
+following categories
+\begin{enumerate}[1. ]
+\item $A-B$ bimodules,
+\item $F$-algebra homomorphisms $A \otimes B^{op} \to \End_F(M)$,
+\item $A \otimes B^{op}$-modules.
+\end{enumerate}
+\end{prop}
+
+\section{Commutators and endomorphisms}
+
+Recall that if $R$ is a ring, $L \subset R$ any subset, the centralizer of
+$L$ in $R$, $C_R(L)$ is defined to be the set of $r \in R$ which commute
+with every element of $L$.
+
+Let $F$ be a field, $A$ an $F$-algebra, and $M$ a right $A$-module. The
+right $A$-module structure of $M$ gives rise to a homomorphism of
+$F$-algebras
+\[f : A^{op} \to \End_F(M).\]
+We can then characterize the endomorphisms of $M$ as a right $A$-module as
+those linear transformations $b : M \to M$ such that
+\[b(ma) = (b(m)) a, \]
+or in other words, $\End_A(M) = C_{\End_F(M)}(f(A))$.
+
+\section{A double commutator theorem}
+
+
+\begin{thm}
+Let $B$ be an $F$-algebra, and $M$ a faithful\footnote{i.e., $\ann(M) = 0$}
+semisimple right $B$-module, finite dimensional as an $F$-vector space. Let
+$E = \End_F(M)$, and set $C = C_E(B)$.  Then, regarding $B$ as a subalgebra
+of $E$ (via its right multiplication action), we have $B = C_E(C)$.
+\end{thm}
+\begin{proof}
+Let $\phi \in C_E(C)$, and choose $m_1, \ldots, m_n$ a basis for $M$ over
+$F$. Set $N = \oplus^n M$, and let $w = (m_1, \ldots, m_n) \in N$. Since
+$N$ is semisimple as a right $B$-module, we can write $N = wB \oplus N'$ as
+right $B$-modules, and let $\pi : N \to mB$ be the projection.
+
+Note that $\pi \in \End_B(N) = C_{M_n(E)}(\iota^n B)$, where $\iota : B^{op}
+\to E$
+gives the right $B$-module structure on $M$, and where $\iota^n$ embeds $B$
+by repeating its entries along the diagonal of a matrix. By direct
+computation, one can check that $C_{M_n(E)}(\iota^n B) = M_n(C_E(B)) =
+M_n(C)$.
+
+Now, if $\phi^{\oplus n} : N \to N$ is the function which does $\phi$ on
+each entry, we have
+\[ w \phi^{\oplus n} = (\pi w) \phi^{\oplus n} = \pi(w \phi^{\oplus n) \in
+wB\]
+so we may write $w(\phi^{\oplus n}) = wb$ some $b \in B$. Unpacking this
+yields $(m_i)\phi = m_i b$ for each $i$, and hence the action of $\phi$ and
+right multiplication by $b$ concide on a basis for $M$. It therefore
+follows that $\phi = b$ as desired.
+\end{proof}
+
 \appendix
 
 \chapter{Tensors}
