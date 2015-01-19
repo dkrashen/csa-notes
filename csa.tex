@@ -154,6 +154,10 @@ Note that $\ann_R(X)$ is itself always a left ideal of $R$. Further, in the
 case $X = P$, we find that $\ann_R(P)$ is a two-sided ideal of $R$.
 
 \begin{defn}
+A left $R$-module $M$ is called faithful if $\ann_R(M) = 0$.
+\end{defn}
+
+\begin{defn}
 An ideal $I < R$ is called left primitive if $I$ is of the form $I =
 \ann_R(P)$ for some simple left $R$ module $P$.
 \end{defn}
@@ -608,36 +612,97 @@ those linear transformations $b : M \to M$ such that
 \[b(ma) = (b(m)) a, \]
 or in other words, $\End_A(M) = C_{\End_F(M)}(f(A))$.
 
+\begin{notn} \label{commutators associators}
+If $A$ is an $F$-algebra, $M$ a right $A$-module, we regard elements of
+$\End_A(M)$ as acting on the left of $M$, using the standard convention of
+functions (in $\End_F(M)$) acting on the left. On the other hand, if $N$ is
+a left $A$-module, we will instead choose to regard $A$-module
+endomorphisms of $N$ as acting on the right, and therefore will consider
+$N$ as a right $\End_A(N)^{op}$-module, following therefore the convention
+of functions composing left to right instead of right to left.
+
+That is to say, if $f, g \in \End_A(N)$, we will write $nf$ for $f(n)$, and
+$nfg$ to represent $g(f(n)) = gf(n)$.
+\end{notn}
+
 \section{A double commutator theorem}
 
+To warm up, let's examine what certain commutators look like in matrix
+algebras.
 
-\begin{thm}
-Let $B$ be an $F$-algebra, and $M$ a faithful\footnote{i.e., $\ann(M) = 0$}
-semisimple right $B$-module, finite dimensional as an $F$-vector space. Let
-$E = \End_F(M)$, and set $C = C_E(B)$.  Then, regarding $B$ as a subalgebra
-of $E$ (via its right multiplication action), we have $B = C_E(C)$.
+\begin{lem} \label{commutator lemma}
+Suppose that $R \subset S$ are rings. We may consider the inclusions 
+\[R \subset S \subset M_n(S)\]
+where the latter is induced by mapping the element $s$ to the diagonal
+matrix
+\(s I_n\). Then 
+\begin{enumerate}[1. ]
+\item \label{commutator 1} $C_{M_n(S)}(R) = M_n(C_S(R))$,
+\item \label{commutator 2} $C_{M_n(S)}(M_n(R)) = C_S(R) I_n$.
+\end{enumerate}
+\end{lem}
+\begin{proof}
+It is easy to check that for a matrix $a = \sum a_{i,j} e_{i,j}$ and a
+matrix $b = \sum \beta e_{i,i} = \beta I_n$, that $a$ and $b$ commute
+exactly when $\beta$ commutes with each $a_{i,j}$. In particular, it
+follows that $C_S(R) I_n \subset C_{M_n(S)}(M_n(R))$ and $M_n(C_S(R))
+\subset C_{M_n(S)}(R)$.
+
+To check that $C_{M_n(S)(R)} \subset M_n(C_S(R))$, choose $a = \sum_{i,j}
+a_{i,j} e_{i,j}\in
+C_{M_n(S)}(R)$. For $r \in R$, we have
+\[0 = ar - ra = \sum (a_{i,j} r - r a_{i,j}) e_{i,j} \]
+which tells us that $a_{i,j} \in C_S(R)$, as desired.
+
+Finally, if we let $a = \sum_{i,j} a_{i,j} e_{i,j} \in C_{M_n(S)}(M_n(R))$,
+then $a$ must commute with each matrix unit $e_{k,\ell}$. 
+We therefore have 
+\[0 = e_{k,\ell} a - a e_{k, \ell} = \sum_{i,j} a_{i,j} e_{k, \ell} e_{i,j} -
+\sum_{i,j} a_{i,j} e_{i,j} e_{k,\ell} = \sum_j a_{\ell, j} e_{k, j} -
+\sum_i a_{i, k} e_{i,\ell}.\]
+Consequently, we must have that the
+coefficient of a general $e_{p, q}$ is $0$. For $p \neq k$, this says that
+$a_{p, k} = 0$ and for $q \neq \ell$, this says that $a_{\ell, q} = 0$.
+It follows that such an $a$ must be diagonal, of the form $a
+= \sum a_{i,i} e_{i,i}$. In this case, the commutator now looks like:
+\[e_{k,\ell} a - a e_{k, \ell} = \sum_{i} a_{i,i} e_{k, \ell} e_{i,i} -
+\sum_{i} a_{i,i} e_{i,i} e_{k,\ell} = a_{\ell, \ell} e_{k, \ell} - a_{k, k}
+e_{k, \ell} = (a_{\ell, \ell} - a_{k,k}).\]
+It then follows that for these to commute, $a$ must be of the form $s I_n$.
+for some $s \in S$. Since $a$ must also commute with $R = R I_n$, we
+therefore find $s \in C_S(R) I_n$ as claimed.
+\end{proof}
+
+
+\begin{thm}[Double Centralizer, Version 1] \label{dc1}
+Let $B$ be an $F$-algebra, and $M$ a faithful semisimple right $B$-module,
+finite dimensional as an $F$-vector space. Let $E = \End_F(M)$, regard
+$B^{op}$ as a subalgebra of $E$ via its right multiplication action. Then
+we have $B^{op} = C_E(C_E(B^{op}))$.
 \end{thm}
 \begin{proof}
-Let $\phi \in C_E(C)$, and choose $m_1, \ldots, m_n$ a basis for $M$ over
-$F$. Set $N = \oplus^n M$, and let $w = (m_1, \ldots, m_n) \in N$. Since
-$N$ is semisimple as a right $B$-module, we can write $N = wB \oplus N'$ as
-right $B$-modules, and let $\pi : N \to mB$ be the projection.
+Let $\phi \in C_E(C_E(B^{op}))$, and choose $m_1, \ldots, m_n$ a basis for $M$ over
+$F$. As in the convention of Notation~\ref{commutators associators}, $E$
+and $C_E(B^{op})$
+act on the left on $M$, and $C_E(C_E(B^{op}))$ act on the right. 
 
-Note that $\pi \in \End_B(N) = C_{M_n(E)}(\iota^n B)$, where $\iota : B^{op}
-\to E$
-gives the right $B$-module structure on $M$, and where $\iota^n$ embeds $B$
-by repeating its entries along the diagonal of a matrix. By direct
-computation, one can check that $C_{M_n(E)}(\iota^n B) = M_n(C_E(B)) =
-M_n(C)$.
+Set $N = \oplus^n M$, and let $w = (m_1, \ldots, m_n) \in N$. Since $N$ is
+semisimple as a right $B$-module, we can write $N = wB \oplus N'$ as right
+$B$-modules, and let $\pi : N \to mB \to N$ be the projection. The map $\phi \in
+E$ acts naturally (diagonally) on $N$ as $\phi I_n \in M_n(E) = \End_F(N)$,
+and since the $m_i$ are a basis, it follows that the action of $\phi$ on
+$M$ is determined by its action on $w \in N$. It therefore suffices to show
+that we can find $b \in B$ such that $w \phi = w b$.
 
-Now, if $\phi^{\oplus n} : N \to N$ is the function which does $\phi$ on
-each entry, we have
-\[ w \phi^{\oplus n} = (\pi w) \phi^{\oplus n} = \pi(w \phi^{\oplus n}) \in
-wB\]
-so we may write $w(\phi^{\oplus n}) = wb$ some $b \in B$. Unpacking this
-yields $(m_i)\phi = m_i b$ for each $i$, and hence the action of $\phi$ and
-right multiplication by $b$ concide on a basis for $M$. It therefore
-follows that $\phi = b$ as desired.
+To see this, we note that since $\pi$ is a right $B$-module homomorphism,
+we have by Lemma~\ref{commutator lemma}(\ref{commutator 1}),
+\[\pi \in C_{M_n(E)}(B^{op}) = M_n(C_E(B^{op})).\]
+Further, we see that the action of $\phi$ on $N$ as $\phi I_n$ satisfies
+\[\phi \in C_E(C_E(B^{op})) I_n = C_{M_n(E)}(M_n(C_E(B^{op}))),\]
+by Lemma~\ref{commutator lemma}(\ref{commutator 2}). Consequently, the actions of $\pi$ and
+$\phi$ on $N$ commute, and we have, since $w = \pi w$,
+\[ w \phi = (\pi w) \phi = \pi(w \phi) \in wB.\]
+This means we may write $w\phi = wb$ some $b \in B$, as desired.
 \end{proof}
 
 \appendix
