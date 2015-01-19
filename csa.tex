@@ -1,9 +1,32 @@
 
 \documentclass[12pt]{report}
 
-\usepackage{amsmath,amsthm,amsfonts,amscd,amssymb,epsfig,color,enumerate}
-\usepackage{fullpage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% package and document formatting stuff
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{amsmath,amsthm,amsfonts,amscd,amssymb}
+\usepackage{makeidx,enumerate}
+
+\usepackage{fullpage,color}
+\usepackage[pdfstartview=FitH,
+%             pdfauthor={\myauthor},
+%             pdftitle={\mytitle},
+            colorlinks,
+            linkcolor=reference,
+            citecolor=citation,
+            urlcolor=e-mail,
+            backref]{hyperref}
 \usepackage[all]{xy}
+
+\definecolor{e-mail}{rgb}{0,.40,.80}
+\definecolor{reference}{rgb}{.10,.40,.42}
+\definecolor{mrnumber}{rgb}{.80,.40,0}
+\definecolor{citation}{rgb}{0,.40,.80}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% theorem stuff
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \theoremstyle{plain}
 
@@ -20,7 +43,10 @@
 \newtheorem{prop}[thm]{Proposition}
 
 
-%fonts
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% typography stuff
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \newcommand{\mb}[1]{\mathbf #1}
 \newcommand{\mbb}[1]{\mathbb #1}
 \newcommand{\mf}[1]{\mathfrak #1}
@@ -46,17 +72,33 @@
 \newcommand{\coker}{\oper{coker}}
 \newcommand{\End}{\oper{End}}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% other stuff
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeindex
+\newcommand{\X}[1]{#1\index{#1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end preamble 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% title stuff
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \author{Daniel Krashen}
-
 \title{Central Simple Algebras}
 
 \maketitle
-
 \tableofcontents
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% document stuff
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \chapter{Preliminaries}
@@ -118,7 +160,7 @@ $R^{op}$ modules.
 \end{rem}
 
 \begin{defn}
-Let $R, S$ be rings. An $R-S$ bimodule is a set $M$ endowed with a left
+Let $R, S$ be rings. An $R-S$ \X{bimodule} is a set $M$ endowed with a left
 $R$-module structure and a right $S$-module structure such that for all $r
 \in R, s \in S, m \in M$, we have
 \[ r(m s) = (r m) s.\]
@@ -139,26 +181,26 @@ We will write $_R M_S$ to denote the fact that $M$ is an $R-S$ bimodule.
 
 \section{Simple and Semisimple Modules}
 
-\begin{defn}
+\begin{defn} \index{simple module}
 Let $R$ be a ring. We say that a left $R$-module $P$ is simple if it is nonzero
 and if the only submodules of $P$ are $0$ and $P$.
 \end{defn}
 
 \begin{defn}
 Let $R$ be a ring, $P$ a left $R$-module. For a subset $X \subset P$, we
-define $\ann_R(X)$, the annihilator of $P$ in $R$, to be the set
+define $\ann_R(X)$, the \X{annihilator} of $P$ in $R$, to be the set
 \[\ann_R(X) = \{r \in R | rX = 0\}.\]
 \end{defn}
 
 Note that $\ann_R(X)$ is itself always a left ideal of $R$. Further, in the
 case $X = P$, we find that $\ann_R(P)$ is a two-sided ideal of $R$.
 
-\begin{defn}
-A left $R$-module $M$ is called faithful if $\ann_R(M) = 0$.
+\begin{defn} 
+A left $R$-module $M$ is called \X{faithful} if $\ann_R(M) = 0$.
 \end{defn}
 
-\begin{defn}
-An ideal $I < R$ is called left primitive if $I$ is of the form $I =
+\begin{defn} 
+An ideal $I < R$ is called left \X{primitive} if $I$ is of the form $I =
 \ann_R(P)$ for some simple left $R$ module $P$.
 \end{defn}
 
@@ -198,8 +240,8 @@ Follows immediately from the definition of a maximal ideal.
 \end{proof}
 
 
-\begin{defn}
-Let $R$ be a ring. We say that a left $R$-module $P$ is semisimple if it is
+\begin{defn} 
+Let $R$ be a ring. We say that a left $R$-module $P$ is \X{semisimple} if it is
 a direct sum of simple modules.
 \end{defn}
 
@@ -246,7 +288,7 @@ as desired.
 
 \section{Semiprimitive Algebras}
 
-\begin{defn}
+\begin{defn} \index{Jacobson Radical}
 Let $R$ be a ring. We define $J_r(R)$ (respectively $J_\ell(R)$), the right
 (left) Jacobson radical of $R$, to be the intersection of all the maximal
 right (left) ideals of $R$. 
@@ -347,7 +389,7 @@ We have $s = s1 = srt = 1t = t$.
 If $r \in R$ has both a left and a right inverse, we simply say that it is
 invertible, and can speak of its uniquely defined inverse.
 
-\begin{defn}
+\begin{defn} \index{Quasiregular}
 Let $R$ be a ring, and $r \in R$. We say that $r$ is left quasiregular if
 $1 - r$ has a left inverse, right quasiregular if $1 - r$ has a right
 inverse, and simply quasiregular it is both left and right quasiregular. 
@@ -402,10 +444,11 @@ maximal with respect to the property that each of its elements are
 quasiregular.
 \end{cor}
 
-It therefore makes sense to define the Jacobson radical of $R$, to be $J(R)
+It therefore makes sense to define the Jacobson radical \index{Jacobson
+Radical} of $R$, to be $J(R)
 = J_r(R) = J_\ell(R)$.
 
-\begin{defn}
+\begin{defn} \index{Semiprimitive}
 We say that a ring $R$ is \textbf{semiprimitive} if $J(R) = 0$.
 \end{defn}
 
@@ -419,7 +462,7 @@ arbitrary rings.
 
 Let us first consider the structure of endomorphism rings of simple
 modules:
-\begin{thm}[Schur's Lemma]
+\begin{thm}[Schur's Lemma] \index{Schur's Lemma}
 Let $P$ be a simple right $R$ module, and let $D = End_R(P_R)$. Then $D$ is
 a division ring.
 \end{thm}
@@ -473,7 +516,7 @@ with the natural ring structure inhereted by matrix addition and
 multiplication.
 \end{lem}
 
-\begin{thm}[Wedderburn-Artin]
+\begin{thm}[Wedderburn-Artin] \index{Wedderburn-Artin Theorem}
 Let $A$ be a finite dimensional algebra over a field $F$, and suppose that
 $J(A) = 0$. Then we may write $A = \oplus (P_i)^{d_j}$ as a direct sum of
 minimal right ideals, and $A \cong \oplus_{i = 1}^n M_{d_i}(D_i)$, where
@@ -525,7 +568,8 @@ simplicity of $A$.
 
 \section{Tensor products of algebras}
 
-\subsection{Definition and universal property}
+\subsection{Definition and universal property} \index{Tensor products of
+algebras}
 Let $F$ be a field, and $A, B$ $F$-algebras. Then the vector space tensor
 product $A \otimes_F B$ can be given the structure of an $F$-algebra via,
 defining for simple tensors:
@@ -599,7 +643,8 @@ following categories
 
 \section{Commutators and endomorphisms}
 
-Recall that if $R$ is a ring, $L \subset R$ any subset, the centralizer of
+Recall that if $R$ is a ring, $L \subset R$ any subset, the centralizer
+\index{Centralizer} of
 $L$ in $R$, $C_R(L)$ is defined to be the set of $r \in R$ which commute
 with every element of $L$.
 
@@ -674,7 +719,8 @@ therefore find $s \in C_S(R) I_n$ as claimed.
 \end{proof}
 
 
-\begin{thm}[Double Centralizer, Version 1] \label{dc1}
+\begin{thm}[Double Centralizer, Version 1] \label{dc1} \index{Double
+Commutator Theorem!Version 1}
 Let $B$ be an $F$-algebra, and $M$ a faithful semisimple right $B$-module,
 finite dimensional as an $F$-vector space. Let $E = \End_F(M)$, regard
 $B^{op}$ as a subalgebra of $E$ via its right multiplication action. Then
@@ -704,6 +750,7 @@ $\phi$ on $N$ commute, and we have, since $w = \pi w$,
 \[ w \phi = (\pi w) \phi = \pi(w \phi) \in wB.\]
 This means we may write $w\phi = wb$ some $b \in B$, as desired.
 \end{proof}
+
 
 \appendix
 
@@ -880,5 +927,8 @@ matrix doesen't change under extension of scalars, the kernel and cokernel
 have the corresponding basis over $F$ and $L$.
 \end{proof}
 
+%\bibliographystyle{alpha}
+%\bibliography{citations}
+\printindex
 
 \end{document}
