@@ -78,6 +78,7 @@
 
 \makeindex
 \newcommand{\X}[1]{#1\index{#1}}
+\newcommand{\Xb}[1]{\textbf{#1}\index{#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % end preamble 
@@ -181,8 +182,8 @@ We will write $_R M_S$ to denote the fact that $M$ is an $R-S$ bimodule.
 
 \section{Simple and Semisimple Modules}
 
-\begin{defn} \index{simple module}
-Let $R$ be a ring. We say that a left $R$-module $P$ is simple if it is nonzero
+\begin{defn}
+Let $R$ be a ring. We say that a left $R$-module $P$ is \X{simple} if it is nonzero
 and if the only submodules of $P$ are $0$ and $P$.
 \end{defn}
 
@@ -288,9 +289,9 @@ as desired.
 
 \section{Semiprimitive Algebras}
 
-\begin{defn} \index{Jacobson Radical}
+\begin{defn} 
 Let $R$ be a ring. We define $J_r(R)$ (respectively $J_\ell(R)$), the right
-(left) Jacobson radical of $R$, to be the intersection of all the maximal
+(left) \X{Jacobson radical} of $R$, to be the intersection of all the maximal
 right (left) ideals of $R$. 
 \end{defn}
 In fact, we will show eventually that the right and left Jacobson radicals
@@ -389,9 +390,9 @@ We have $s = s1 = srt = 1t = t$.
 If $r \in R$ has both a left and a right inverse, we simply say that it is
 invertible, and can speak of its uniquely defined inverse.
 
-\begin{defn} \index{Quasiregular}
-Let $R$ be a ring, and $r \in R$. We say that $r$ is left quasiregular if
-$1 - r$ has a left inverse, right quasiregular if $1 - r$ has a right
+\begin{defn} 
+Let $R$ be a ring, and $r \in R$. We say that $r$ is left \X{quasiregular}
+if $1 - r$ has a left inverse, right quasiregular if $1 - r$ has a right
 inverse, and simply quasiregular it is both left and right quasiregular. 
 \end{defn}
 
@@ -444,12 +445,11 @@ maximal with respect to the property that each of its elements are
 quasiregular.
 \end{cor}
 
-It therefore makes sense to define the Jacobson radical \index{Jacobson
-Radical} of $R$, to be $J(R)
+It therefore makes sense to define the \X{Jacobson radical} of $R$, to be $J(R)
 = J_r(R) = J_\ell(R)$.
 
-\begin{defn} \index{Semiprimitive}
-We say that a ring $R$ is \textbf{semiprimitive} if $J(R) = 0$.
+\begin{defn}
+We say that a ring $R$ is \Xb{semiprimitive} if $J(R) = 0$.
 \end{defn}
 
 \section{Endomorphisms: Schur and Wedderburn-Artin}
@@ -462,7 +462,7 @@ arbitrary rings.
 
 Let us first consider the structure of endomorphism rings of simple
 modules:
-\begin{thm}[Schur's Lemma] \index{Schur's Lemma}
+\begin{thm}[Schur's Lemma] 
 Let $P$ be a simple right $R$ module, and let $D = End_R(P_R)$. Then $D$ is
 a division ring.
 \end{thm}
@@ -516,7 +516,7 @@ with the natural ring structure inhereted by matrix addition and
 multiplication.
 \end{lem}
 
-\begin{thm}[Wedderburn-Artin] \index{Wedderburn-Artin Theorem}
+\begin{thm}[Wedderburn-Artin] 
 Let $A$ be a finite dimensional algebra over a field $F$, and suppose that
 $J(A) = 0$. Then we may write $A = \oplus (P_i)^{d_j}$ as a direct sum of
 minimal right ideals, and $A \cong \oplus_{i = 1}^n M_{d_i}(D_i)$, where
@@ -533,7 +533,7 @@ of block diagonal matrices with the algebras of the form $M_{d_i}(D_i)$
 along the diagonal. The result follows.
 \end{proof}
 
-\begin{cor}[Wedderburn Structure Theorem]
+\begin{cor}[Wedderburn Structure Theorem] \label{simple wedderburn}
 Let $A$ be a simple finite dimensional algebra over a field $F$. Then $A_A
 = P^d$ for some minimal right ideal $P <_r A$ and some positive integer $d$.
 Further, $A
@@ -547,7 +547,7 @@ of $A$, and $A$ is simple, it follows that there is only one index $i$, and
 so $A = P^d$, with $A \cong M_d(D)$ as claimed.
 \end{proof}
 
-\begin{cor} \label{simple wedderburn}
+\begin{cor} \label{unique simple module} 
 Suppose that $A$ is a simple, finite dimensional algebra over a field $F$.
 Then all simple right $A$ modules are isomorphic. In particular, all the
 minimal right ideals of $A$ are isomorphic as right $A$-modules.
@@ -568,8 +568,7 @@ simplicity of $A$.
 
 \section{Tensor products of algebras}
 
-\subsection{Definition and universal property} \index{Tensor products of
-algebras}
+\subsection{Definition and universal property} 
 Let $F$ be a field, and $A, B$ $F$-algebras. Then the vector space tensor
 product $A \otimes_F B$ can be given the structure of an $F$-algebra via,
 defining for simple tensors:
@@ -643,9 +642,8 @@ following categories
 
 \section{Commutators and endomorphisms}
 
-Recall that if $R$ is a ring, $L \subset R$ any subset, the centralizer
-\index{Centralizer} of
-$L$ in $R$, $C_R(L)$ is defined to be the set of $r \in R$ which commute
+Recall that if $R$ is a ring, $L \subset R$ any subset, the \X{centralizer}
+of $L$ in $R$, $C_R(L)$ is defined to be the set of $r \in R$ which commute
 with every element of $L$.
 
 Let $F$ be a field, $A$ an $F$-algebra, and $M$ a right $A$-module. The
@@ -719,8 +717,7 @@ therefore find $s \in C_S(R) I_n$ as claimed.
 \end{proof}
 
 
-\begin{thm}[Double Centralizer, Version 1] \label{dc1} \index{Double
-Commutator Theorem!Version 1}
+\begin{thm}[Double Centralizer, Version 1] \label{dc1} 
 Let $B$ be an $F$-algebra, and $M$ a faithful semisimple right $B$-module,
 finite dimensional as an $F$-vector space. Let $E = \End_F(M)$, regard
 $B^{op}$ as a subalgebra of $E$ via its right multiplication action. Then
@@ -751,6 +748,110 @@ $\phi$ on $N$ commute, and we have, since $w = \pi w$,
 This means we may write $w\phi = wb$ some $b \in B$, as desired.
 \end{proof}
 
+\chapter{Central Simple Algebras}
+
+\section{Characterizing central simple algebras}
+
+\begin{defn}
+Let $F$ be a field, and $A$ an $F$-algebra. We say that $A$ is $F$-central
+if $Z(A) = F$ and $\dim_F(A)$ is finite.
+\end{defn}
+
+\begin{defn}
+Let $F$ be a field and $A$ an $F$-algebra. We say that $A$ is a \X{central
+simple algebra} over $F$ (a $csa/F$ for short), if
+\begin{enumerate}[1. ]
+\item $A$ is simple as a ring (no $2$-sided ideals) and
+\item $A$ is $F$-central. 
+\end{enumerate}
+\end{defn}
+
+A particularly important case of this is if $D$ is a finite dimensional
+division algebra over $F$ with $Z(D) = F$. In this case, $D$ is called a
+\X{central division algebra} over $F$ (a $cda/F$ for short).
+
+\begin{prop}\label{central simple wedderburn artin}
+Let $F$ be a field. The following are equivalent:
+\begin{enumerate}[1. ]
+\item \label{csa is a 1}
+$A$ is a $csa/F$, 
+\item \label{csa is a 2}
+$A \cong M_n(D)$ for some $D$, a $cda/F$.
+\end{enumerate}
+Further, in part (\ref{csa is a 2}), $D$ is uniquely defined up to
+isomorphism by $A$.
+\end{prop}
+\begin{proof}
+Assuming that $A$ is a $csa/F$, it follows from the Wedderburn structure
+Theorem (Corollary~\ref{simple wedderburn}), that we have $A \cong M_n(D)$
+for some division algebra $D$ over $F$, where $D$ may be identified as
+$\End_A(P)$ for a simple right module $P$, and $P$ is uniquely determined
+up to isomorphism by Corollary~\ref{unique simple module}. Consequently, $D$ is uniquely determined up to
+isomorphism by $A$. To see that $D$ is a $cda/F$, we note that by
+Lemma~\ref{commutator lemma}(\ref{commutator 2}),
+\[F = Z(A) = Z(M_n(D)) = C_{M_n(D)}(M_n(D)) = Z(D) I_n = Z(D). \]
+
+On the other hand, assuming that $D$ is a $cda/F$, if $A = M_n(D)$ it
+follows from computation with matrix units $e_{i,j}$ that $A$ is a simple
+algebra. Again by Lemma~\ref{commutator lemma}(\ref{commutator 2}), we have
+$Z(A) = Z(M_n(D)) = Z(D)$. Since $Z(D) = F$, this shows that $A$ is
+central.
+\end{proof}
+
+Given any $F$-algebra $A$, we may regard $A$ has having the structure of an
+$A-A$ bimodule. This induces an $F$-algebra homomorphism
+\begin{align*}
+A \otimes A^{op} &\to \End_F(A) \\
+a \otimes b &\mapsto \big( x \mapsto axb \big)
+\end{align*}
+often referred to as the \X{sandwich map}.
+
+\begin{thm} \label{sandwich csa}
+Let $F$ be a field and $A$ a finite dimensional $F$-algebra. Then $A$ is a
+$csa/F$ if and only if the sandwich map $A \otimes A^{op} \to \End_F(A)$ is
+an isomorphism.
+\end{thm}
+\begin{proof}
+On the one hand, suppose that the sandwich map is an isomorphism. We can
+see that $A$ is simple since if it did have a proper ideal $I \triangleleft A$,
+then $I \otimes A^{op}$ would be a proper ideal (one may verify properness
+by considering its dimension as an $F$-vector space). However, tihs would
+contradict the fact that  $\End_F(A) = M_{\dim A}(F)$ is a simple algebra.
+To see that $A$ is central, we note that if $a \in Z(A)$, then 
+\[a \otimes 1 \in Z(A \otimes A^{op}) = Z(\End_F(A)) = Z(M_{\dim A}(F)) =
+F.\]
+If $a$ is not in the $F$-span of $1 \in A$, then it would follow that $a
+\otimes 1$ and $1 \otimes 1$ would be linearly independent and hence $a
+\otimes 1$ would not be in the $F$-span of $1 \otimes 1 = 1_{A \otimes
+A^{op}}$, contradicting the fact that $a \otimes 1 \in Z(A \otimes A^{op})
+= F$. It therefore follows that $a \in F \cdot 1$, and so $Z(A) = F$ as
+claimed.
+
+Next suppose that $A$ is a $csa/F$. To see that the sandwich map is an
+isomorphism, we note that since both sides are vector spaces over $F$ of
+dimension $\left(\dim_F(A)\right)^2$, it suffices to check that the map is
+surjective. Let $B \subset \End_F(A)$ be the image of $A \otimes A^{op}$.
+Since $A$ is a simple algebra, it is a simple left $A \otimes A^{op}$
+module, and hence a simple left $B$-module. 
+
+Consider the centralizer $C_{\End_F(A)}(B)$. If $f: A \to A \in \End_F(A)$
+is an element of this centralizer, then setting $x = f(1) \in A$, we find
+that for $a \in A$, we have $f(a) = f((a \otimes 1) 1) = a \otimes 1 f(1) =
+a \cdot x \cdot 1 = ax$, and so $f$ is determined by its value on $1$. On
+the other hand, since $f$ also must commute with the right action of $A$
+(i.e. the left module action of $A^{op}$ from the bimodule structure), we
+have
+\[ ax = f(a) = f((1 \otimes a) 1) = (1 \otimes a) f(1) = xa \]
+for every $x \in A$, which tells us that $a \in Z(A) = F$. Consequently, we
+find $C_{\End_F(A)}(B) = F$.
+
+Since $A$ is a simple algebra, it is a simple left $A \otimes A^{op}$ module,
+and it is a simple left $B$ module, and therefore also a semisimple
+$B$-module. By the Double Centralizer Theorem, Version 1
+(Theorem~\ref{dc1}), we therefore have have
+\[B = C_{\End(A)}(C_{\End(A)}(B)) = C_{\End(A)}(F) = \End(A), \]
+and so the sandwich map is surjective.
+\end{proof}
 
 \appendix
 
