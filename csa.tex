@@ -102,16 +102,18 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\chapter{Preliminaries}
+\chapter{Algebraic Preliminaries}
 
-\section{Rings and conventions}
+\section{Notation and conventions}
+
+\subsection{Rings and conventions}
 
 Rings are not necessarily commutative. They are always assumed to be
 associative and unital. Ring homomorphisms are required to be unital. The
 elements $1$ and $0$ need not be distinct. The ring $R$ itself is a
 (non-proper) ideal.
 
-\section{Modules and bimodules}
+\subsection{Modules and bimodules}
 
 \begin{defn}
 Let $R$ be a ring. A left $R$-module is a set $M$ together with a binary
@@ -178,9 +180,9 @@ We will write $_R M_S$ to denote the fact that $M$ is an $R-S$ bimodule.
 \end{notn}
 
 
-\chapter{Some Structure Theory}
+\section{Some Structure Theory}
 
-\section{Simple and Semisimple Modules}
+\subsection{Simple and Semisimple Modules}
 
 \begin{defn}
 Let $R$ be a ring. We say that a left $R$-module $P$ is \X{simple} if it is nonzero
@@ -287,7 +289,7 @@ consequently, we have $p = n + x$ for $x \in L$. We therefore have
 as desired.
 \end{proof}
 
-\section{Semiprimitive Algebras}
+\subsection{Semiprimitive Algebras}
 
 \begin{defn} 
 Let $R$ be a ring. We define $J_r(R)$ (respectively $J_\ell(R)$), the right
@@ -332,7 +334,7 @@ submodule of a semisimple module. By Proposition~\ref{semisimple sub quot},
 it follows that $A_A$ is semisimple as desired. 
 \end{proof}
 
-\section{An ambidextrous characterization of the Jacobson radical}
+\subsection{An ambidextrous characterization of the Jacobson radical}
 
 Recall that $r \in R$ is called left invertible if there is some $s \in R$ so
 that $sr = 1$, and right invertible if there is some $t \in R$ so that $rt
@@ -452,7 +454,7 @@ It therefore makes sense to define the \X{Jacobson radical} of $R$, to be $J(R)
 We say that a ring $R$ is \Xb{semiprimitive} if $J(R) = 0$.
 \end{defn}
 
-\section{Endomorphisms: Schur and Wedderburn-Artin}
+\subsection{Endomorphisms: Schur and Wedderburn-Artin}
 
 The main observation of this section is that if $R$ is a ring, then
 regarding $R$ as a right module over itself, we have a natural
@@ -564,11 +566,11 @@ representation $A \cong \oplus_i M_{d_i}(D_i)$, contradicting the
 simplicity of $A$.
 \end{proof}
 
-\chapter{Tensors and commutators}
+\section{Tensors and commutators}
 
-\section{Tensor products of algebras}
+\subsection{Tensor products of algebras}
 
-\subsection{Definition and universal property} 
+\subsubsection{Definition and universal property} 
 Let $F$ be a field, and $A, B$ $F$-algebras. Then the vector space tensor
 product $A \otimes_F B$ can be given the structure of an $F$-algebra via,
 defining for simple tensors:
@@ -617,12 +619,12 @@ b_j'\right)
 \end{align*}
 \end{proof}
 
-\subsection{Description via structure constants}
+\subsubsection{Description via structure constants}
 
 Suppose that $A$ is a finite dimensional $F$-algebra. if $\{e_i\}$ is a basis
 for $A$, ....
 
-\section{Tensors and bimodules}
+\subsection{Tensors and bimodules}
 
 Let $F$ be a field, $A$ and $B$ $F$-algebras. If $M$ is an $A-B$
 bimodule then we have algebra homomorphisms $A \to \End_F(M)$ and
@@ -640,7 +642,7 @@ following categories
 \end{enumerate}
 \end{prop}
 
-\section{Commutators and endomorphisms}
+\subsection{Commutators and endomorphisms}
 
 Recall that if $R$ is a ring, $L \subset R$ any subset, the \X{centralizer}
 of $L$ in $R$, $C_R(L)$ is defined to be the set of $r \in R$ which commute
@@ -668,7 +670,7 @@ That is to say, if $f, g \in \End_A(N)$, we will write $nf$ for $f(n)$, and
 $nfg$ to represent $g(f(n)) = gf(n)$.
 \end{notn}
 
-\section{A double commutator theorem}
+\subsection{A double commutator theorem}
 
 To warm up, let's examine what certain commutators look like in matrix
 algebras.
