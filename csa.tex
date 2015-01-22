@@ -19,6 +19,7 @@
             backref]{hyperref}
 \usepackage[all]{xy}
 
+\definecolor{todo}{rgb}{.80,.20,.20}
 \definecolor{e-mail}{rgb}{0,.40,.80}
 \definecolor{reference}{rgb}{.10,.40,.42}
 \definecolor{mrnumber}{rgb}{.80,.40,0}
@@ -79,6 +80,8 @@
 \makeindex
 \newcommand{\X}[1]{#1\index{#1}}
 \newcommand{\Xb}[1]{\textbf{#1}\index{#1}}
+
+\newcommand{\todo}[1]{\textcolor{todo}{#1}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % end preamble 
@@ -621,8 +624,10 @@ b_j'\right)
 
 \subsubsection{Description via structure constants}
 
+\todo{
 Suppose that $A$ is a finite dimensional $F$-algebra. if $\{e_i\}$ is a basis
 for $A$, ....
+}
 
 \subsection{Tensors and bimodules}
 
@@ -750,7 +755,7 @@ $\phi$ on $N$ commute, and we have, since $w = \pi w$,
 This means we may write $w\phi = wb$ some $b \in B$, as desired.
 \end{proof}
 
-\chapter{Central Simple Algebras}
+\chapter{The Structure of Central Simple Algebras}
 
 \section{Characterizing central simple algebras}
 
@@ -854,6 +859,67 @@ $B$-module. By the Double Centralizer Theorem, Version 1
 \[B = C_{\End(A)}(C_{\End(A)}(B)) = C_{\End(A)}(F) = \End(A), \]
 and so the sandwich map is surjective.
 \end{proof}
+
+\todo{
+invariants of csa's: index, degree
+}
+
+\section{The Brauer Group}
+
+\todo{
+brauer equivalence, identification with isomorphism classes of division
+algebras. period. state period index problem.
+}
+
+\section{Noether-Skolem and Double Centralizers}
+
+\section{Maximal Subfields}
+
+\todo{open questions on the existence of nonmaximal subfields}
+
+\section{Quaternions, Cyclics and Crossed Products}
+
+\section{The Second Galois Cohomology Group}
+
+\todo{period divides index}
+
+\todo{primary decomposition in the Brauer group}
+
+\todo{decomposibility - open problems and examples}
+
+\section{Cyclicity of Division Algebras}
+
+\subsection{Degree $3$ algebras}
+
+\iffalse
+
+\chapter{Involutions and Algebraic Groups}
+
+\section{Hermitian forms and Witt groups}
+
+\section{Orthogonal, Symplectic and Unitary groups}
+
+\section{Adjoint involutions and similarity}
+
+\section{Characterizing algebras with involution}
+
+\todo{The Pfaffian and half-maximal subfields}
+
+\section{Construction of Classicial groups}
+
+\chapter{Ramification}
+
+\chapter{Some Nice Fields}
+
+\chapter{Polynomial Identities}
+
+\chapter{The Generic Division Algebra}
+
+\chapter{Geometric Methods}
+
+\chapter{Obstructions in Geometry}
+
+\fi
 
 \appendix
 
