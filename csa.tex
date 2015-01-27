@@ -954,7 +954,7 @@ now from Theorem~\ref{csa equivalent} this follows from the fact that
 $M_n(M_m(F)) \cong M_{nm}(F)$.
 \end{proof}
 
-\begin{lem}
+\begin{lem} \label{simple tensors}
 Suppose that $A$ is a $csa/F$ and $B$ is a simple, finite dimensional
 $F$-algebra. Then $A \otimes_F B$ is a central simple $Z(B)$-algebra.
 \end{lem}
@@ -1024,6 +1024,48 @@ inclusion of $m \times m$ ``scalar'' matrices with (equal) entries in
 $M_n(F)$. By Lemma~\ref{commutator lemma}(\ref{commutator 1}), we then have
 $C_{M_m(M_n(F))}(M_n(F)) = M_m(Z(M_n(F)) = M_m(F) = C$, and so the
 centralizer has the desired dimension.
+\end{proof}
+
+\begin{thm}[Noether-Skolem]
+Let $A$ be a $csa/F$, $B, B' \subset A$ simple $F$-subalgebras. Given an
+isomorphism of $F$-algebras $\psi: B \to B'$, there exists an element $\alpha
+\in A^*$ such that $\psi(b) = \alpha b \alpha^{-1}$ for every $b \in B$.
+\end{thm}
+\begin{proof}
+Consider the inclusions
+\[B \subset A \subset A \otimes A^{op} \to \End_F(A).\]
+This gives the vector space $A$ the structure of a $B \otimes
+A^{op}$-module in two different ways:
+\[b \otimes a \cdot_1 (x) = bxa,  \ \ b \otimes a \cdot_2 (x) \psi(b) x
+a.\]
+We write these two different $B \otimes A^{op}$ modules as $A_1$ and $A_2$.
+Note that these of course have the same underlying set ($A$), but different
+module structures.
+
+Since $B \otimes A^{op}$ is a simple $F$-algebra by Lemma~\ref{simple
+tensors}, it follows from Corollary~\ref{unique simple module} that there
+is a unique simple left $B \otimes A^{op}$ module. Since $A_1$ and $A_2$
+are finite dimensional $B \otimes A^{op}$-modules, they are both semisimple
+modules, and hence uniquely characterized by their dimension, since they
+are both a sum of the same simple module, repeated some number of times.
+Consequently, we may find an isomorphism $\phi: A_1 \to A_2$ of left $B
+\otimes A^{op}$ modules. That is, $\phi$ is a map from $A$ to itself such
+that $\phi(b x a) = \psi(b)\phi(x) a$ for every $b \in B$, $a, x \in A$.
+
+Using the sandwich map, we may regard $\phi$ as
+arising from the natural action of an element $\alpha \in A \otimes
+A^{op}$, acting on $A$ using the standard left module structure defined by
+the sandwich map. Since this is an isomorphism, it follows that $\alpha \in
+(A \otimes A^{op})^*$. Since $\alpha$ is a $1 \otimes A^{op}$ module map
+(this part of the $B \otimes A^{op}$ module structures $A_1$ and $A_2$ on
+$A$ coincide), it follows that $\alpha \in C_{A \otimes A^{op}}(A^{op})$ by
+Section~\ref{commutators and endomorphisms}, and hence by Lemma~\ref{dc2},
+we have $\alpha \in A \otimes 1 \subset A \otimes A^{op}$. Since $\alpha$
+is also in $(A \otimes A^{op})^*$, it follows that $\alpha \in A^*$. By
+the properties of $\phi$, we then have, for $b \in B$, $\phi(b) = \psi(b)
+\phi(1)$, and so $\alpha b = \psi(b) \alpha$, or in other words
+\[\alpha b \alpha^{-1} = \psi(b),\]
+as desired.
 \end{proof}
 
 \iffalse
