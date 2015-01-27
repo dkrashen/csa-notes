@@ -860,9 +860,56 @@ $B$-module. By the Double Centralizer Theorem, Version 1
 and so the sandwich map is surjective.
 \end{proof}
 
-\todo{
-invariants of csa's: index, degree
-}
+\begin{thm}
+Suppose that $A/F$ is an algebra. Then the following are equivalent:
+\begin{enumerate}[1. ]
+\item \label{is csa} $A$ is a $csa/F$,
+\item \label{has sandwich} the sandwich map $A \otimes A^{op} \to
+\End_F(A)$ is an isomorphism,
+\item \label{has inverse} $A \otimes_F B \cong M_m(F)$ for some $F$-algebra
+$B$ and some positive integer $m$,
+\item \label{split at closure} $A \otimes_F \ov{F} \cong M_n(\ov F)$ for
+some positive integer $n$,
+\item \label{split somewhere} $A \otimes_F L \cong M_n(\ov F)$ for some
+field extension $L/F$ and some positive integer $n$.
+\end{enumerate}
+\end{thm}
+\begin{proof}
+The equivalence of (\ref{is csa}) and (\ref{has sandwich}) follows from
+Theorem~\ref{sandwich csa}, and the implication (\ref{has sandwich})
+$\implies$ (\ref{has inverse}) is immediate.
+
+To check (\ref{has inverse}) $\implies$ (\ref{split at closure}), we note
+that the isomorphism $A \otimes B \cong M_n(F)$ yields an isomoprhism
+$(A \otimes_F {\ov F}) \otimes_{\ov F} (B \otimes_F {\ov F})$, and so it
+follows that $A \otimes_F \ov F$ is a central simple $\ov F$-algebra. By
+the Wedderburn Structure Theorem (Corollary~\ref{simple wedderburn}), we
+have $A \otimes \ov F \cong M_n(D)$ for some finite dimensional division
+algebra $D$ over $\ov F$. But note that for every $d \in D$, $\ov F(d) \subset
+D$ is a commutative finite dimensional domain, and hence a field. Since
+this means that $\ov F(d)/\ov F$ is a finite field extension, and $\ov F$
+is algebraically closed, it follows that $D = \ov F$ and so $A \otimes_F
+\ov F \cong M_n(\ov F)$ as claimed.
+
+Clearly (\ref{split at closure}) $\implies$ (\ref{split somewhere}), and so
+to complete the proof, we need only show that (\ref{split somewhere})
+$\implies$ (\ref{is csa}). So, suppose that $A \otimes_F L \cong M_n(L)$
+for some field extension $L/F$. If $I \triangleleft A$ is a two-sided
+ideal, then $I \otimes L$ is a two-sided ideal of $A \otimes L  = M_n(L)$ of
+dimension $(\dim I)(\dim L)$. In particular, $I$ is proper if and only if
+$I \otimes L$ is proper. Since $A \otimes L \cong M_n(L)$ is simple, it
+follows that $A$ has no proper ideals and is therefore also simple.
+Similarly, we note that if $a \in Z(A)$, then $a \otimes 1 \in Z(A \otimes
+L) = 1 \otimes L$. By Proposition~\ref{tensor basis}, if $a \not\in F$,
+then $a \otimes 1$ would be independent from the $F$-subspace $1 \otimes L$
+in $A \otimes L$, and it would follow that $a \not\in Z(A)$ contradicting
+our assumption. Therefore, we must have $a \in F$ and so $Z(A) = F$ as
+claimed.
+
+\end{proof}
+
+\section{The degree and the index}
+
 
 \section{The Brauer Group}
 
@@ -1013,7 +1060,7 @@ vector spaces also inherets a natural vector space structure.
 To simplify our language (and comply with convention), we will refer to a
 $F-F-F$ linear function as simply a bilinear function.
 
-\begin{prop}
+\begin{prop} \label{tensor basis}
 Suppose that $V$ and $W$ are vector spaces over a field $F$ with bases
 $\{v_i\}$ and $\{w_j\}$ respectively. Then $V \otimes_F W$ is a vector
 space with basis $\{v_i \otimes w_j\}$.
