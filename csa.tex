@@ -910,6 +910,38 @@ claimed.
 
 \section{The degree and the index}
 
+It follows from the results of the last section that the dimension of a
+central simple algebra $A$ over $F$ is always a square, since dimension is
+preserved by scalar extensions, and since $A \otimes_F \ov F \cong M_n(\ov
+F)$.
+
+\begin{defn}
+Let $A$ be a $csa/F$. We define the degree of $A$, $\deg(A) = \sqrt{\dim_F(A)}$.
+\end{defn}
+
+\begin{defn}
+Let $A$ be a $csa/F$ with $A \cong M_m(D)$ for $D$ the underlying division
+algebra of $A$. We define the index of $A$, $\ind(A) = \deg(D)$.
+\end{defn}
+
+It follows immediately that if $D$ is the underlying division algebra of
+$A$, that writing $A = M_m(D)$ we have 
+\[A \otimes \ov F \cong M_m(D \otimes \ov F) \cong M_m(M_{\ind A}(\ov F))
+\cong M_{m \ind(A)}(\ov F), \] 
+and since also $A \otimes \ov F \cong M_{\deg(A)}(\ov F)$, it follows
+$\deg(A) = m \ind(A)$ and so we have:
+\begin{lem}
+Let $A$ be a $csa/F$. Then $\ind(A) | \deg(A)$.
+\end{lem}
+
+In general, given a algebra $A$, the underlying division algebra of $A$
+contains the most important structural information about $A$, and in
+particular, the computation of the index of $A$ is a central question in
+the field. A great deal of research to date has been concerned with the
+development of techniques to compute the index of algebras in particular
+cases. This includes, of course, the question of whether or not a given
+algebra $A$ is a division algebra, as this may also be interpreted as the
+question of whether or not the equality $\deg(A) = \ind(A)$ holds.
 
 \section{The Brauer Group}
 
