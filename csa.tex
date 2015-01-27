@@ -73,6 +73,8 @@
 \newcommand{\coker}{\oper{coker}}
 \newcommand{\End}{\oper{End}}
 
+\newcommand{\ind}{\oper{ind}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % other stuff
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -724,7 +726,7 @@ therefore find $s \in C_S(R) I_n$ as claimed.
 \end{proof}
 
 
-\begin{thm}[Double Centralizer, Version 1] \label{dc1} 
+\begin{thm}[Double Centralizer, Warm-Up Version 1] \label{dc1} 
 Let $B$ be an $F$-algebra, and $M$ a faithful semisimple right $B$-module,
 finite dimensional as an $F$-vector space. Let $E = \End_F(M)$, regard
 $B^{op}$ as a subalgebra of $E$ via its right multiplication action. Then
@@ -854,13 +856,13 @@ find $C_{\End_F(A)}(B) = F$.
 
 Since $A$ is a simple algebra, it is a simple left $A \otimes A^{op}$ module,
 and it is a simple left $B$ module, and therefore also a semisimple
-$B$-module. By the Double Centralizer Theorem, Version 1
+$B$-module. By the Double Centralizer Theorem, Warm-Up Version 1
 (Theorem~\ref{dc1}), we therefore have have
 \[B = C_{\End(A)}(C_{\End(A)}(B)) = C_{\End(A)}(F) = \End(A), \]
 and so the sandwich map is surjective.
 \end{proof}
 
-\begin{thm}
+\begin{thm} \label{csa equivalent}
 Suppose that $A/F$ is an algebra. Then the following are equivalent:
 \begin{enumerate}[1. ]
 \item \label{is csa} $A$ is a $csa/F$,
@@ -870,7 +872,7 @@ Suppose that $A/F$ is an algebra. Then the following are equivalent:
 $B$ and some positive integer $m$,
 \item \label{split at closure} $A \otimes_F \ov{F} \cong M_n(\ov F)$ for
 some positive integer $n$,
-\item \label{split somewhere} $A \otimes_F L \cong M_n(\ov F)$ for some
+\item \label{split somewhere} $A \otimes_F L \cong M_n(L)$ for some
 field extension $L/F$ and some positive integer $n$.
 \end{enumerate}
 \end{thm}
@@ -906,6 +908,62 @@ in $A \otimes L$, and it would follow that $a \not\in Z(A)$ contradicting
 our assumption. Therefore, we must have $a \in F$ and so $Z(A) = F$ as
 claimed.
 
+\end{proof}
+
+
+\begin{lem} \label{csa scalar extension}
+Suppose $A$ is an $F$-algebra. Then the following are equivalent:
+\begin{enumerate}[1. ]
+\item $A$ is a $csa/F$,
+\item for every field extension $L/F$, $A \otimes_F L$ is a $csa/L$.
+\item for some field extension $L/F$, $A \otimes_F L$ is a $csa/L$,
+\end{enumerate}
+\end{lem}
+\begin{proof}
+If $A$ is a $csa/F$, let $L/F$ be a field extension, and $\ov L$ the
+algebraic closure of $L$. Since $F \subset L \subset \ov L$ and $\ov L$ is
+algebraically closed, we may choose an algebraic closure $\ov F$ inside of
+$\ov L$. Since $A \otimes \ov F  \cong M_n(\ov F)$, it follows that 
+\[(A \otimes_F L) \otimes_L \ov L  = A \otimes_F \ov L = A \otimes_F \ov F
+\otimes_{\ov F} \ov L  \cong M_n(\ov F) \otimes_{\ov F} \ov L = M_n(\ov
+L)\]
+and so $A \otimes_F L$ is a $csa/L$ by Theorem~\ref{csa equivalent}.
+
+On the other hand, Supposing that $A \otimes L$ is a $csa/L$ for some field
+extension $L/F$, we find that, by identifying the sandwich map
+\[\sigma_{A \otimes L} : (A \otimes L) \otimes_L (A \otimes L)^{op} \to
+\End_L(A \otimes L),\]
+with the sandwich map for $A$ tensored with $L$
+\[\sigma_A \otimes_F L: A \otimes A^{op} \otimes L \to \End_F(A) \otimes_F
+L,\]
+that since $\sigma_{A \otimes L}$ is an isomorphism by Theorem~\ref{csa
+equivalent}, so is $\sigma$ by Lemma~\ref{scalar exact}. Therefore again by
+Theorem~\ref{csa equivalent}, it follows that $A$ is a $csa/F$.
+\end{proof}
+
+Lemma~\ref{csa scalar extension} is useful as it helps us to understand
+the effect of taking tensor products of simple algebras.
+
+\begin{lem} \label{csa tensors}
+Suppose that $A, B$ are central simple algebras over $F$. Then so is $A
+\otimes_F B$.
+\end{lem}
+\begin{proof}
+By Lemma~\ref{csa scalar extension}, we may assume that $F = \ov F$. But
+now from Theorem~\ref{csa equivalent} this follows from the fact that
+$M_n(M_m(F)) \cong M_{nm}(F)$.
+\end{proof}
+
+\begin{lem}
+Suppose that $A$ is a $csa/F$ and $B$ is a simple, finite dimensional
+$F$-algebra. Then $A \otimes_F B$ is a central simple $Z(B)$-algebra.
+\end{lem}
+\begin{proof}
+We may identify
+\[A \otimes B = A \otimes_F (L \otimes_L B) = (A \otimes_F L) \otimes_L B. \]
+By Lemma~\ref{csa scalar extension}, $A \otimes L$ is a $csa/L$ and so by
+Lemma~\ref{csa tensors}, $A \otimes B \cong (A \otimes_F L) \otimes_L B$ is
+as well.
 \end{proof}
 
 \section{The degree and the index}
@@ -952,6 +1010,24 @@ algebras. period. state period index problem.
 
 \section{Noether-Skolem and Double Centralizers}
 
+\begin{lem}[Double Centralizer, Warm-Up Version 2] \label{dc2} 
+Suppose $A = B \otimes C$ are cenral simple $F$-algebras. Then $C =
+C_A(B)$.
+\end{lem}
+\begin{proof}
+Note that $C = C \otimes 1 \subset C_A(B)$, and so it suffices to show that
+$\dim C_A(B) = \dim C$. Since dimension is preserved under scalar
+extension, it suffices to assume that $F = \ov F$. By Theorem~\ref{csa
+equivalent}, we then have $B \cong M_n(F), C = M_m(F)$ and $B \otimes C
+\cong M_m(M_n(F))$, with the embedding $B = B \otimes 1 \subset A$ as the
+inclusion of $m \times m$ ``scalar'' matrices with (equal) entries in
+$M_n(F)$. By Lemma~\ref{commutator lemma}(\ref{commutator 1}), we then have
+$C_{M_m(M_n(F))}(M_n(F)) = M_m(Z(M_n(F)) = M_m(F) = C$, and so the
+centralizer has the desired dimension.
+\end{proof}
+
+\iffalse
+
 \section{Maximal Subfields}
 
 \todo{open questions on the existence of nonmaximal subfields}
@@ -968,9 +1044,8 @@ algebras. period. state period index problem.
 
 \section{Cyclicity of Division Algebras}
 
-\subsection{Degree $3$ algebras}
+\subsection{Degree three algebras}
 
-\iffalse
 
 \chapter{Involutions and Algebraic Groups}
 
@@ -1162,7 +1237,7 @@ transformation represented by a matrix $(a_{i,j})$. Then $L \otimes f$ is
 represented by the matrix $(a_{i,j})$.
 \end{lem}
 
-\begin{lem}
+\begin{lem} \label{scalar exact}
 Suppose that $L/F$ is a field extension, and $f: V \to W$ is a linear
 transormation of $F$-vector spaces. Then
 \[ \ker L \otimes f = L \otimes_F \ker f, \ \ \coker L \otimes f = L
