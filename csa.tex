@@ -1068,6 +1068,98 @@ the properties of $\phi$, we then have, for $b \in B$, $\phi(b) = \psi(b)
 as desired.
 \end{proof}
 
+To prove the full double centralizer Theorem, let us begin with a quick
+lemma concerning subrings of matrix algebras.
+
+\begin{lem}
+Let $R, T \subset S$ be rings, and consider $S \subset M_n(S)$ via the
+diagonal embedding. We then have
+\[ R M_n(T) = \{\sum r_i t_i | r_i \in R, t_i \in M_n(T)\} = M_n(RT).\]
+\end{lem}
+\begin{lem}
+By definition, it is enough to show that for every matrix unit $e_{i,j}$
+and every $r \in R, t \in T$, we have $r t e_{i,j} \in R M_n(T)$. But this
+is clear since $t e_{i,j} \in M_n(T)$.
+\end{lem}
+
+\begin{lem}[Double Centralizer, Warm-Up Version 3] \label{dc3} 
+Suppose $B \subset A$ are central simple $F$-algebras. Then $A = B C_A(B)
+\cong B \otimes C_A(B)$.
+\end{lem}
+\begin{proof}
+We wish to check that the natural map $B \otimes C_A(B) \to A$ via
+multiplication is an isomorphism. It suffices, by Lemma~\ref{scalar exact},
+to check that this holds after scalar extension from $F$ to $\ov F$. In
+particular, we may assume that the field $F$ is algebraically closed.
+
+By Theorem~\ref{csa equivalent}, we then have $B \cong M_n(F)$. Since $F^n$
+is a simple $B$-module, it is the unique one by Lemma~\ref{unique simple
+module}, and if we write $A = End_F(V)$, it then follows that $V$ is a
+semisimple $B$ module, and hence isomorphic to $(F^{n})^m$ for some $m$. In
+particular, we have $A= M_{nm}(F)$. Note that since we may embed $M_n(F)$
+into $A$ as ``block scalar matrices,'' it follows from Noether-Skolem that
+after a change of basis of $V = F^{nm}$, we may assume that $B$ is embedded
+in this way in $A$. But evidently, we now have $A = M_{nm}(F) = M_m(M_n(F))
+= M_n(F) \otimes M_m(F) = B \otimes C_A(B)$ as claimed.
+\end{proof}
+
+\begin{thm}[The Double Centralizer Theorem]
+Let $B$ be a simple $F$ algebra, $A$ a $csa/F$, and $B \subset A$. Then
+\begin{enumerate}[1. ]
+\item \label{dc csa} $C_A(B)$ is a simple algebra,
+\item \label{dc dim} $(\dim_F B)(\dim_F C_A(B)) = dim_F A$,
+\item \label{dc dc} $C_A(C_A(B)) = B$,
+\item \label{dc tensor} If $B$ is a $csa/F$, then $A \cong B \otimes
+C_A(B)$.
+\end{enumerate}
+\end{thm}
+\begin{proof}
+Part~(\ref{dc tensor}) is exactly Lemma~\ref{dc3}.  Part~(\ref{dc csa})
+will follow from (~\ref{dc tensor}) and the fact that if $B \otimes C_A(B)$
+is simple, then $C_A(B)$ must be simple as well. 
+
+For part~(\ref{dc dc}), consider the inclusions $B \subset A \subset A
+\otimes A^{op}$. We note that $C_{A \otimes A^{op}}(B \otimes 1) = C_A(B)
+\otimes A^{op}$ since computing commutators, we find that for an arbitrary
+element $\sum a_i \otimes a_i' \in C_{A \otimes A^{op}}(B \otimes 1)$,
+chosen so that all the $a_i'$ are independent, we have:
+\[0 = b \otimes 1 \left(\sum a_i \otimes a_i'\right) - \left(\sum a_i \otimes
+a_i'\right) b \otimes 1 = \sum (b a_i - a_i b) \otimes a_i' \]
+implies that $b$ commutes with each $a_i$, or in other words $\sum a_i
+\otimes a_i' \in C_A(B) \otimes A^{op}$ as desired. It follows then that by
+Lemma~\ref{dc1}, 
+\[B \otimes 1 = C_{A \otimes A^{op}}(C_{A \otimes A^{op}}(B)) = C_{A \otimes
+A^{op}}(C_A(B) \otimes A^{op}) = C_A(C_A(B)) \otimes 1.\]
+
+Finally, we turn to part~\ref{dc dim}. The case where $B$ is a central
+simple algebra over $F$ follows from part~\ref{dc tensor}. In general,
+since $B$ is simple, we write $L = Z(B)$, and we have $B$ is a $csa/L$. If
+we consider the inclusion $B \subset A \subset A \otimes A^{op} = End(A)$,
+then we see that the inclusion of $L$ in $B$ gives $A$ the structure of an
+$L$-vector space under left multiplication, and since $L \subset Z(B)$, it
+also follows that $B$ consists of $L$-linear endomorphisms of $A$. Further,
+we note that since $L \subset B$, the centralizer $C_{A \otimes
+A^{op}}(B)$, consists also of $L$-linear endomorphisms of $A$, and it
+follows that $C_{A \otimes A^{op}}(B) = C_{End_F(A)}(B) = C_{End_L(A)}(B)$.
+Since $B$ and $End_L(A)$ are central simple $L$-algebras, it follows that
+$\dim_L(\End_L(A)) = \dim_L(B)\dim_L(C_{\End_F(A)}(B))$.
+We have 
+\[\dim_L(\End_L(A)) = \dim_L(A)^2 = (\dim_F(A)/[L:F])^2,\]
+\[\dim_L(B) = \dim_F(B)/[L:F]\]
+and
+\begin{multline*}
+\dim_L(C_{\End_F(A)}(B)) = \dim_F(C_{\End_F(A)}(B))/[L:F] = \dim_F(C_{A
+\otimes A^{op}}(B \otimes 1))/[L:F] \\
+=
+\dim_F(C_A(B) \otimes A^{op})/[L:F] = \dim_F(C_A(B)) \dim_F(A)/[L:F]
+\end{multline*}
+and so
+\[ \dim_F(A)^2/[L:F]^2 = \left(\dim_F(B)/[L:F]\right)\left( \dim_F(C_A(B)) \dim_F(A)/[L:F]
+\right)\]
+giving us $\dim_F(A) = \dim_F(B) \dim_F(C_A(B))$ as desired.
+
+\end{proof}
+
 \iffalse
 
 \section{Maximal Subfields}
