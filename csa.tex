@@ -679,51 +679,70 @@ $nfg$ to represent $g(f(n)) = gf(n)$.
 
 \subsection{A double commutator theorem}
 
-To warm up, let's examine what certain commutators look like in matrix
-algebras.
 
-\begin{lem} \label{commutator lemma}
-Suppose that $R \subset S$ are rings. We may consider the inclusions 
-\[R \subset S \subset M_n(S)\]
-where the latter is induced by mapping the element $s$ to the diagonal
-matrix
-\(s I_n\). Then 
-\begin{enumerate}[1. ]
-\item \label{commutator 1} $C_{M_n(S)}(R) = M_n(C_S(R))$,
-\item \label{commutator 2} $C_{M_n(S)}(M_n(R)) = C_S(R) I_n$.
-\end{enumerate}
+\begin{lem} \label{tensor commutators}
+Suppose that $A$ and $B$ are $F$-algebras, and $A' \subset A$, $B' \subset
+B$ are subalgebras. Then $C_{A \otimes B}(A' \otimes B') = C_A(A') \otimes
+C_B(B')$.
 \end{lem}
 \begin{proof}
-It is easy to check that for a matrix $a = \sum a_{i,j} e_{i,j}$ and a
-matrix $b = \sum \beta e_{i,i} = \beta I_n$, that $a$ and $b$ commute
-exactly when $\beta$ commutes with each $a_{i,j}$. In particular, it
-follows that $C_S(R) I_n \subset C_{M_n(S)}(M_n(R))$ and $M_n(C_S(R))
-\subset C_{M_n(S)}(R)$.
+Suppose that $\sum a_i \otimes b_i \in C_{A \otimes B}(A' \otimes B')$.
+Without loss of generality, we may assume that the $\{b_i\}$ and $\{a_i\}$ are
+both linearly independent sets, respectively. If
+$a' \in A'$, then we have
+\[ 0 = (a' \otimes 1) \sum a_i \otimes b_i - \left(\sum a_i \otimes
+b_i\right) a' \otimes 1 = \sum (a'a_i - a_i a') \otimes b_i \]
+and since the $b_i$ are independent, this implies $a_i \in C_A(A')$ for
+each $i$.
+Similarly, we find that $b_i \in C_B(B')$ and so $C_{A \otimes B}(A'
+\otimes B') \subset C_A(A') \otimes C_B(B')$. The reverse inclusion is
+immediate.
+\end{proof}
 
-To check that $C_{M_n(S)(R)} \subset M_n(C_S(R))$, choose $a = \sum_{i,j}
-a_{i,j} e_{i,j}\in
-C_{M_n(S)}(R)$. For $r \in R$, we have
-\[0 = ar - ra = \sum (a_{i,j} r - r a_{i,j}) e_{i,j} \]
-which tells us that $a_{i,j} \in C_S(R)$, as desired.
 
-Finally, if we let $a = \sum_{i,j} a_{i,j} e_{i,j} \in C_{M_n(S)}(M_n(R))$,
+\begin{lem}
+Let $F$ be a field. Then $Z(M_n(F)) = F$.
+\end{lem}
+\begin{proof}
+Let $a = \sum_{i,j} a_{i,j} e_{i,j} \in Z(M_n(F))$,
 then $a$ must commute with each matrix unit $e_{k,\ell}$. 
 We therefore have 
 \[0 = e_{k,\ell} a - a e_{k, \ell} = \sum_{i,j} a_{i,j} e_{k, \ell} e_{i,j} -
 \sum_{i,j} a_{i,j} e_{i,j} e_{k,\ell} = \sum_j a_{\ell, j} e_{k, j} -
 \sum_i a_{i, k} e_{i,\ell}.\]
-Consequently, we must have that the
-coefficient of a general $e_{p, q}$ is $0$. For $p \neq k$, this says that
-$a_{p, k} = 0$ and for $q \neq \ell$, this says that $a_{\ell, q} = 0$.
-It follows that such an $a$ must be diagonal, of the form $a
-= \sum a_{i,i} e_{i,i}$. In this case, the commutator now looks like:
+Consequently, we must have that each coefficient of the $e_{p, q}$s is $0$.
+For $p \neq k$, this says that $a_{p, k} = 0$ and for $q \neq \ell$, this
+says that $a_{\ell, q} = 0$.  It follows that such an $a$ must be diagonal,
+of the form $a = \sum a_{i,i} e_{i,i}$. In this case, the commutator now
+looks like:
 \[e_{k,\ell} a - a e_{k, \ell} = \sum_{i} a_{i,i} e_{k, \ell} e_{i,i} -
 \sum_{i} a_{i,i} e_{i,i} e_{k,\ell} = a_{\ell, \ell} e_{k, \ell} - a_{k, k}
 e_{k, \ell} = (a_{\ell, \ell} - a_{k,k}).\]
-It then follows that for these to commute, $a$ must be of the form $s I_n$.
-for some $s \in S$. Since $a$ must also commute with $R = R I_n$, we
-therefore find $s \in C_S(R) I_n$ as claimed.
+It then follows that for these to commute, $a$ must be of the form $\lambda
+I_n$, for some $\lambda \in F$. 
 \end{proof}
+
+\begin{lem} \label{commutator lemma}
+Suppose that $B \subset A$ are $F$-algebras. We may consider the inclusions 
+\[B \subset A \subset M_n(A)\]
+where the latter is induced by mapping the element $a$ to the diagonal
+matrix
+\(a I_n\). Then 
+\begin{enumerate}[1. ]
+\item \label{commutator 1} $C_{M_n(A)}(B) = M_n(C_A(B))$,
+\item \label{commutator 2} $C_{M_n(A)}(M_n(B)) = C_A(B) I_n$.
+\end{enumerate}
+\end{lem}
+\begin{proof}
+Writing $M_n(A) = M_n(F) \otimes A$, we have by Lemma~\ref{tensor commutators}
+\[C_{M_n(A)}(B) = C_{M_n(F) \otimes A}(1 \otimes B) = M_n(F) \otimes C_A(B)
+= M_n(C_A(F)).\] 
+Similarly, we have 
+\[C_{M_n(A)}(M_n(B)) = C_{M_n(F) \otimes A}(M_n(F) \otimes B) =
+C_{M_n(F)}(M_n(F)) \otimes C_A(B) = Z(M_n(F)) \otimes C_A(B) = F \otimes
+C_A(B) = C_A(B).\]
+\end{proof}
+
 
 
 \begin{thm}[Double Centralizer, Warm-Up Version 1] \label{dc1} 
