@@ -73,6 +73,8 @@
 \newcommand{\ann}{\oper{ann}}
 \newcommand{\coker}{\oper{coker}}
 \newcommand{\End}{\oper{End}}
+\newcommand{\Aut}{\oper{Aut}}
+\newcommand{\Stab}{\oper{Stab}}
 
 \newcommand{\ind}{\oper{ind}}
 \newcommand{\per}{\oper{per}}
@@ -838,7 +840,7 @@ see that $Re \cap Rf = 0$ since if $r = ae = bf$ then $r = aee = bfe = b0 =
 These observations naturally extend to give the following Proposition, the
 proof of which is left to the reader.
 
-\begin{prop}
+\begin{prop} \label{central idempotent decomposition}
 Let $R$ be a ring. Then there is a bijective correspondence
 \[\left\{
 \begin{matrix}
@@ -1410,6 +1412,110 @@ $A$ as claimed.
 
 \chapter{Galois theory and crossed products}
 
+\section{Quaternions, symbols and cyclics}
+\subsection{Quaternion algebras}
+
+\subsection{Symbol algebras}
+
+\subsection{Cyclic algebras}
+
+\section{Galois theory and crossed product algebras}
+
+\subsection{Algebras with Galois maximal subfields}
+
+\subsection{Galois ring extensions of fields}
+
+Let $F$ be a field and suppose that $E$ is a commutative $F$-algebra. 
+We say that $E/F$ is \Xb{separable} (or \X{\'etale}) if we can write
+\[E \cong \bigtimes E_i \] for some finite collection of separable field
+extensions $E_i/F$.
+
+\begin{defn}
+Let $E$ be a commutative separable $F$-algebra, and $G$ a group of
+$F$-algebra automorphisms of $E$. We say that $E$ is a $G$-\X{Galois
+extension} of $F$ if $|G| = \dim_F E$ and $E^G = F$.
+\end{defn}
+
+\begin{prop}
+Let $E$ be a commutative separable $F$-algebra, $G \subset \Aut(E/F)$. The folowing are equivalent:
+\begin{enumerate}[1. ]
+\item $E$ is a $G$-Galois extension of $F$,
+\item if we write $E = \bigtimes E_i$ for separable field extensions
+$E_i/F$, then $G$ acts transitively on the $E_i$ and $E_i/F$ is
+$\Stab_G(E_i)$-Galois,
+\end{enumerate}
+\end{prop}
+\begin{proof}
+Suppose that $E/F$ is a $G$-Galois extension, and write $E = \bigtimes E_i
+e_i$, where $e_i$ are the idempotents in $E$ for this decomposition (as in 
+Proposition~\ref{central idempotent decomposition}). 
+
+To see that $G$ acts transitively on these idempotents, consider, for
+example, the orbit of the idempotent $e_1$. Clearly for $\sigma \in G$,
+$\sigma(e_1)$ must also be an idempotent, and by the description of $E$, we
+can see that it must exactly be one of the other idempotents $e_i$, giving
+an isomorphism $E_1 \to E_i$.  If we let $e$ be the sum of all the
+idempotents in the orbit of $G$, we see that $e \in E^G$, and hence $e \in
+F$ by hypothesis. But therefore, since $F$ is a field, and $e \neq 0$, we
+have $e = 1 = \sum e_i$, and hence the action is transitive.
+
+Let $G_i = \Stab_G(E_i)$. To see that this is Galois, we note that by
+transitivity of the action, $E_i \cong E_j$ all $i, j$, and therefore, by the
+Orbit-Stabilizer Theorem, $|G_i| = [E_i: F]$ for each $i$. Let $H =
+\Aut(E_i/F)$. We have a homomorphism $G_i \to H$, and $|H| \leq [E_i : F]$
+with equality of $E_i/F$ is Galois. Suppose that $x \in E_i^{G_i}$. If
+$\sigma \in G$ with $\sigma(E_i) = E_j$, then we find that since $G_j =
+\sigma G_i \sigma^{-1}$, we have $\sigma(x) \in E_j^{G_j}$. Choose for each
+$j$, an element $\sigma_j \in G$ such that $\sigma_j(E_i) = E_j$, and
+set $y = \sum_j \sigma_j(x) \in \bigtimes E_j = E$. We then find that $y
+\in E^G = F$, and hence each component of $y$ in each $E_j$ lies in $F$. In
+particular, the $i$th component of $y$, namely $x$, is in $F$. Therefore
+$E_i^{G_i} = F$ as claimed.
+
+Conversely, suppose that $G$ acts transitively on the set of $E_i$'s and
+that each $E_i/F$ is $G_i$-Galois, where $G_i= \Stab_G(E_i)$ as before.
+Since $G$ acts transitively on the $E_i$, they each have the same degree,
+and since each of the $E_i$ are $G_i$-Galois, it follows that $|G| = \dim_F
+E$. To see that $E^G = F$, suppose that $x \in E^G$, and write $x_i = x
+e_i$ so that $x_i \in E_i$ and $\sum x_i = x$. Since $x \in E^G \subset
+E^{G_i}$ it follows that $x_i \in E_i^{G_i} = F$ for each $i$. Furthermore,
+if $\sigma(E_i) = E_j$, then we see that since $\sigma$ is an $F$-algebra
+map, that $x_i = x_j$ since these elements are both in $F$. In other words,
+with respect to the product decomposition $E = \bigtimes E_i$, we have $x$
+is of the form $x = (x', x', \ldots, x')$ for $x' \in F$. Since this
+corresponds to an element in the image of $F$ in $E$, we have $x \in F$ as
+claimed.
+\end{proof}
+
+\subsection{General crossed product algebras}
+
+\subsection{The second Galois cohomology group}
+
+\section{Galois descent}
+
+\subsection{Vector spaces with semilinear actions}
+
+\subsection{The first Galois cohomology group}
+
+\subsection{Finite torsors and Galois extensions}
+
+\subsection{$PGL_n$-torsors and central simple algebras}
+
+\section{A bit more Galois cohomology}
+
+\subsection{The boundary map}
+
+\subsection{Saltman's proof of period dividing index}
+
+\chapter{A second look at the Brauer group}
+
+\section{Primary decomposition}
+
+\section{Albert's criterion for cyclicity}
+
+\section{Algebras of degree $3$ are cyclic}
+
+\chapter{Involutions}
 \iffalse
 
 \todo{open questions on the existence of nonmaximal subfields}
