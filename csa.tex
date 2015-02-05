@@ -506,7 +506,7 @@ f_{m, 1} & f_{m, 2} & \cdots & f_{m, n}
 and one may check that composition of functions $fg$ precisely corresponds
 to matrix multiplication and composition of endomorphisms within each entry
 of the product. Consequently, we have:
-\begin{lem}
+\begin{lem} \label{matrix endomorphisms}
 Let $R$ be a ring, $M = \oplus_{j = 1}^m M_j$. Then $End_R(M)$ is
 isomorphic to the ring of matrices of the form
 \[
@@ -679,6 +679,8 @@ $nfg$ to represent $g(f(n)) = gf(n)$.
 
 \subsection{A double commutator theorem}
 
+To begin, let's set up a few basic facts about computing commutators in
+tensor products.
 
 \begin{lem} \label{tensor commutators}
 Suppose that $A$ and $B$ are $F$-algebras, and $A' \subset A$, $B' \subset
@@ -698,7 +700,6 @@ Similarly, we find that $b_i \in C_B(B')$ and so $C_{A \otimes B}(A'
 \otimes B') \subset C_A(A') \otimes C_B(B')$. The reverse inclusion is
 immediate.
 \end{proof}
-
 
 \begin{lem}
 Let $F$ be a field. Then $Z(M_n(F)) = F$.
@@ -738,9 +739,11 @@ Writing $M_n(A) = M_n(F) \otimes A$, we have by Lemma~\ref{tensor commutators}
 \[C_{M_n(A)}(B) = C_{M_n(F) \otimes A}(1 \otimes B) = M_n(F) \otimes C_A(B)
 = M_n(C_A(F)).\] 
 Similarly, we have 
-\[C_{M_n(A)}(M_n(B)) = C_{M_n(F) \otimes A}(M_n(F) \otimes B) =
-C_{M_n(F)}(M_n(F)) \otimes C_A(B) = Z(M_n(F)) \otimes C_A(B) = F \otimes
-C_A(B) = C_A(B).\]
+\begin{multline*}
+C_{M_n(A)}(M_n(B)) = C_{M_n(F) \otimes A}(M_n(F) \otimes B) =
+C_{M_n(F)}(M_n(F)) \otimes C_A(B) \\ 
+= Z(M_n(F)) \otimes C_A(B) = F \otimes C_A(B) = C_A(B).
+\end{multline*}
 \end{proof}
 
 
@@ -775,6 +778,147 @@ $\phi$ on $N$ commute, and we have, since $w = \pi w$,
 \[ w \phi = (\pi w) \phi = \pi(w \phi) \in wB.\]
 This means we may write $w\phi = wb$ some $b \in B$, as desired.
 \end{proof}
+
+\chapter{Idempotents}
+
+\section{Basic Notions}
+
+In a ring $R$, an \Xb{idempotent} element $e \in R$ is one with $e^2 = e$. Of
+course, the most obvious example of these are the elements $0$ and $1$, and
+in case $R$ is, for example, a commutative domain, it is immediate that
+these are the only possible such elements. We call $0$ and $1$ trivial
+idempotents.
+
+Another important source of examples are projection maps: if $V$ is a
+vector space with $V = W \oplus U$, then the projection map $\pi_W : V \to
+V$ defined by $\pi_W(w, u) = (w, 0)$ is a nontrivial idempotent linear
+transformation in the ring $\End(V)$. We will see that, in some sense,
+idempotents can be thought of as ``projections,'' and correspond to certain
+decompositions.
+
+\begin{defn}
+We say that idempotent elements $e, f \in R$ are \textbf{complementary} if
+$e + f = 1$. We say that they are \textbf{orthogonal} if $ef = fe = 0$.
+\end{defn}
+
+Note that if $e$ is an idempotent, then so is $1 - e$ since
+\[(1 - e)^2 = 1 - 2e + e^2 = 1 - 2e + e = = 1 - e.\]
+It is also easy to see that the idempotents $e$ and $1 - e$ are also
+complementary.
+
+\begin{defn}
+Let $e \in R$ be an idempotent. We say that $e$ is \textbf{primitive} if we
+cannot write $e = e_1 + e_2$ for nontrivial idempotents $e_1, e_2$.
+\end{defn}
+
+\begin{defn}
+Let $e_1, \ldots, e_n \in R$ be idempotents. We say that these are a
+\textbf{complete} set of idempotents if $\sum e_i = 1$.
+\end{defn}
+
+\section{Ring decompositions}
+
+\subsection{Central idempotents and product decompositions}
+
+Suppose that $e \in R$ is a central idempotent -- that is, $e$ is an
+idempotent and $e \in Z(R)$. In this case, if we set $f = 1 - e$ to be the
+complementary idempotent, we have
+\[R = R \cdot 1 = Re + Rf.\]
+Since $e$ is central, it is easy to check that $Re$ is both additively and
+multiplicatively closed, and hence is itself a ring, with
+identity element $e$. Similarly $Rf$ is a ring with identify $f$. We also
+see that $Re \cap Rf = 0$ since if $r = ae = bf$ then $r = aee = bfe = b0 =
+0$. Hence we have a product decomposition
+\[R = Re \times Rf.\]
+
+These observations naturally extend to give the following Proposition, the
+proof of which is left to the reader.
+
+\begin{prop}
+Let $R$ be a ring. Then there is a bijective correspondence
+\[\left\{
+\begin{matrix}
+e_1, \ldots, e_n \text{ a complete set of pairwise} \\
+\text{orthogonal central idempotents}
+\end{matrix}
+\right\}
+\longleftrightarrow
+\left\{
+\begin{matrix}
+\text{decompositions of the form} \\
+R = R_1 \times \cdots \times R_n
+\end{matrix}
+\right\}.
+\]
+given by
+\[ (e_1, \ldots, e_n) \mapsto \big(R = Re_1 \times \cdots \times Re_n\big)\]
+and where the reverse is given by setting $e_i$ to be the element $(0,
+\ldots, 0, 1, 0, \ldots, 0)$ with a $1$ in the $i$th place.
+\end{prop}
+
+\subsection{Pierce decomposition}
+
+In the case of a noncentral idempotent $e \in R$, although $eR$ is no
+longer a ring, $eRe$ does have the structure of a ring. Furthermore, $eR$
+has the structure of an $eRe-R$ bimodule. We will take advantage of this
+fact, together with the fact that we may identify
+\[R = Hom_R(R_R).\]
+
+\begin{prop}
+Let $e_1, \ldots, e_n \in R$ be a complete set of orthogonal idempotents.
+Then we have $e_iRe_j = Hom_R(e_jR, e_iR)$, induced via left
+multiplication.
+\end{prop}
+\begin{proof}
+Note that we have an injection $R \to \End_R(R_R) = \End_R(\oplus e_iR)$,
+and as in Lemma~\ref{matrix endomorphisms}, we may therefore represent $R$ as matrices of the
+form
+\[
+\left[
+\begin{matrix}
+Hom_R(e_1R, e_1R) & Hom_R(e_1R, e_2R) & \cdots & Hom_R(e_1R, e_nR) \\
+Hom_R(e_2R, e_1R) & Hom_R(e_2R, e_2R) & \cdots & Hom_R(e_2R, e_nR) \\
+\vdots & \vdots & & \vdots \\
+Hom_R(e_nR, e_1R) & Hom_R(e_nR, e_2R) & \cdots & Hom_R(e_nR, e_nR)
+\end{matrix}
+\right]
+\]
+which is to say that we also obtain a decomposition of $R$ in its left
+multiplication action on itself as $R = \oplus Hom_R(e_jR, e_iR)$. Said
+another way, this means that for each $r \in R$, we have a natural
+decomposition $r = \sum r_{i,j}$ where $r_{i,j}$ induces a map from $e_jR$
+to $e_iR$ via left multiplication, and such that $r_{i,j} e_k R = 0$ for $k
+\neq j$. If we compare this to the decomposition given by the idempotents
+via
+\[r = 1r1 = \left(\sum e_i\right) r \left(\sum e_j\right) = \sum_{i,j} e_i
+r e_j \]
+that $e_i r e_j e_k R = 0$ for $k \neq j$ and lies in $e_iR$, that $r_{i,j}
+= e_i r e_j$. In particular, it follows that we have $e_i R e_j = Hom(e_jR,
+e_i R)$ via left multiplication as claimed.
+\end{proof}
+
+\section{Galois extensions}
+
+Let $E/F$ be a Galois extension. That is, $E = F[t]/f(t)$ where $f$ is a
+separable, irreducible polynomial, and where $E/F$ is normal. 
+
+If we write
+\[E \otimes E = E \otimes F[t]/f(t) = E[t]/f(t),\]
+then we find, by the assumption of normality, that since $f(t)$ has a root
+in $E$, it must completely split in $E$, and we have:
+\[E \otimes E = E[t]/\prod (t - \alpha_i) = \times E[t]/(t - \alpha_i)
+\cong \times^n E e_i,\]
+where $e_i$ is the idempotent element of $E \otimes E$ corresponding the
+the factor in the product.  Of course, since the Galois group $G$ acts
+simply and transitively on the roots $\alpha_i$, choosing $\alpha =
+\alpha_1$, we may also write this as:
+\[E \otimes E = \times_{\sigma \in G} E[t]/(t - \sigma(\alpha)) \cong
+\times_{\sigma \in G} E e_\sigma.\]
+Consider the projection onto the $\sigma$ factor $\pi_\sigma: E
+\otimes E \to E e_\sigma$. Since $x \otimes 1$ maps to the constant
+polynomial $x$ in $E[t]/(t -
+\sigma(\alpha))$, and $1 \otimes \alpha$ maps to $\sigma(\alpha)$, we find
+that $\pi_\sigma(x \otimes y) = x \sigma(y)$ for $x, y, \in E$.
 
 \chapter{The Structure of Central Simple Algebras}
 
