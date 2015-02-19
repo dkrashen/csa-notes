@@ -1487,17 +1487,176 @@ corresponds to an element in the image of $F$ in $E$, we have $x \in F$ as
 claimed.
 \end{proof}
 
+It follows from this that we can also describe the Galois extension in a
+particularly explicit way.
+
+\begin{defn}
+Suppose that $G$ is a finite group with a subgroup $H$, and $L/F$ is an
+algebra with an $H$-action. Let $\til{^G L}$ denote the set of symbols
+$^\sigma x$ for $\sigma \in G$ and $x \in L$. We define an equivalence
+relation on these symbols by setting $^\sigma x \sim ^\tau y$ if
+$\sigma^{-1}\tau \in H$ and $x = \sigma^{-1} \tau y$. Let $^G L$ denote the
+set of equivalence classes $[^\sigma x]$, and for a subset $S \subset G$,
+let $^S L$ denote that set of classes of the form $[^\sigma x]$ for $\sigma
+\in S$, $x \in L$.
+\end{defn}
+
+Note that we can think of this as ``formally extending'' the action of $H$
+on $L$ to an action of $G$, where the symbol $^\sigma x$ is interpreted as
+$\sigma(x)$. To emphasize this, we will identify $[^\sigma x]$
+with $\sigma(x)$ in the case that $\sigma \in H$. We may therefore regard
+$L$ as a subset of $^G L$.
+
+The following lemma is straightforward to check.
+\begin{lem} \label{induced factors}
+Let $\sigma H \in G/H$ be a left coset of $H$ in $G$. Then the natural map
+$^\sigma L \to ^{\sigma H} L$ is bijective, as is the map
+\begin{align*}
+L &\to ^\sigma L \\
+x &\mapsto [^\sigma x].
+\end{align*}
+In particular, we see that $^{\sigma H} L$ naturally admits the structure
+of an algebra.
+\end{lem}
+
+
+\begin{defn}
+Suppose that $G$ is a finite group with a subgroup $H$, and $L/F$ is an
+algebra with an $H$-action. We set $^{G/H} L$ denote the algebra
+\[ \bigtimes_{\sigma H \in G/H} {} ^{\sigma H} L \]
+where each factor $^{\sigma H} L$ is identified as an algebra by
+Lemma~\ref{induced factors}. We define a $G$ action on $^{G/H} L$ via
+$\tau [^\sigma x] = [^{\tau \sigma} x]$.
+\end{defn}
+
+One may check that the resulting object is an algebra with $G$ action.
+
+\begin{prop}
+Suppose that $E$ is a commutative separable $F$-algebra which is a
+$G$-Galois extension. Then we can find a subgroup $H \subset G$, and a
+$H$-Galois extension of fields $L/F$ such that
+\(E \cong {^{G/H} L} \).
+\end{prop}
+
 \subsection{General crossed product algebras}
 
+\begin{defn} \label{ns elements}
+Suppose that $A$ is an $F$-algebra containing a commutative subalgebra $E$,
+and $\sigma \in \Aut(E/F)$. We say that an element $u_\sigma \in A$ is a
+\Xb{Noether-Skolem element} for $\sigma$ if $u_\sigma x u_\sigma^{-1} =
+\sigma(x)$ for each $x \in E$. 
+\end{defn}
+
+Note that if $A$ is a $csa/F$, and $E$ is a field (and hence a simple
+algebra) Noether-Skolem element must always exist for each $\sigma \in
+\Aut(E/F)$. In fact, the same is true for Galois extensions $E/F$ for
+commutative $F$-algebras $E$ which are not necessarily fields.
+
+\begin{lem}
+Let $A$ be a $csa/F$, $E \subset A$ a commutative subalgebra, such that
+$E/F$ be a $G$-Galois extension. Then Noether-Skolem elements exist for
+every $\sigma \in G$.
+\end{lem}
+\begin{proof}
+\todo{need to fill this in later}
+\end{proof}
+
+\begin{prop}[Independence of Noether-Skolem elements] \label{ns indep}
+Suppose that $B$ is an associative algebra over a field $F$, $E \subset B$
+is a commutative subalgebra which is $G$-Galois over $F$, and $u_\sigma \in
+B$ is a collection of Noether-Skolem elements for each $\sigma \in G$. Then
+the elements $u_\sigma$ are $E$-independent. That is, we have
+\[\sum x_\sigma u_\sigma = 0\]
+for $x_\sigma \in E$ if and only if $x_\sigma = 0$ for each $\sigma$.
+\end{prop}
+\begin{proof}
+\todo{this proof is not done, and needs work!}
+
+Write $E = {^{G/H}L} = \bigtimes {}^{\sigma H} L e_{\sigma H}$, for
+primitive idempotents $e_{\sigma H} \in E$.
+
+Suppose that we have a dependence relation of the form $0 = \sum x_\sigma
+u_\sigma$. We may assume that this relation has a minimal number of nonzero
+elements. Since some of the elements are nonzero, we may suppose that not all the elements
+$x_\sigma$ are annihilated by $e_1$. Multiplying by $e_1$ on the left, we
+may therefore assume that $x_\sigma \in E e_1 = L$ for all $\sigma$. Now,
+consider right multiplication by some general $y \in E$. We have
+\[\left(\sum x_\sigma u_\sigma\right) y = \sum x_\sigma \sigma(y) u_\sigma
+= x_\sigma (y)e_1 u_\sigma, \]
+since $x = x e_1$ by assumption. Therefore, since $L$ is a field, we may
+conclude by minimality of our dependence relation, that the vectors
+$(x_\sigma)_\sigma$ and $(x_\sigma ye_1)_\sigma$ are proportional over $L$. In
+other words, this implies $\sigma(y)e_1 = \tau(y) e_1$ for every $y \in E$
+and for every $\sigma, \tau$ appearing in the sum. 
+
+Let us assume that there are at least two distinct factors in the sum, for
+group elements $\sigma \neq \tau$. Writing $\sigma^{-1} e_1 =
+e_{\sigma^{-1}(1)}$, we have $\sigma(y) e_1 = \tau(y) e_1$ for all $y \in
+E$ implies $y e_{\sigma^{-1}(1)} = \sigma^{-1} \tau(y) e_{\sigma^{-1}(1)}$.
+If $\sigma^{-1} \tau \in H$, then choosing $y \in E_1 \setminus
+E_1^{\sigma^{-1} \tau}$ (which we can do since $E_1$ is $H$-Galois), we
+find that this gives a contradiction. On the other hand, if
+$\sigma^{-1}\tau \not\in H$, then choosing $y \in E_1$ arbitrarily, we find
+that since 
+\end{proof}
+Suppose we have a central simple algebra $A$, a maximal commutative
+separable subalgebra $E$ which is a $G$-Galois extension of $F$, and 
+
+\todo{discussion of existence of Noether-Skolem elements in the case that
+we have a maximal Galois subfield}
+
+\begin{defn}[crossed product algebra]
+\end{defn}
+
+\begin{prop}
+Crossed product algebras are in bijection with csa's with maximal Galois
+subfields.
+\end{prop}
+
 \subsection{The second Galois cohomology group}
+
+\begin{defn}
+2-cocycle, cohomologousness.
+\end{defn}
+
+\begin{thm}
+$H^2(G, E^*)$ is isomorphic to the subgroup of $\Br(F)$ consisting of csa's
+equivalent to ones with $E/F$ as a maximal subfield.
+\end{thm}
 
 \section{Galois descent}
 
 \subsection{Vector spaces with semilinear actions}
+\begin{enumerate}
+\item
+definition of semilinear action
+\item
+equivalence with $(E,G,1)$-module
+\item
+structure theorem
+\item
+identification of $V^G$ with $F^n \otimes_{M_n(F)} F^n \cong F$. via dot
+product of vectors/dimension count (surjective from $F^n$...).
+\item
+mutually inverse equivalences between vector spaces with semilinear action and
+vector spaces over $F$. respects tensor products (note the structure of
+tensor in the semilinear category is nonstandard with diagonal action...)
+need to check holds for just $E \otimes E$ and higher powers....
+\end{enumerate}
 
 \subsection{The first Galois cohomology group}
 
-\subsection{Finite torsors and Galois extensions}
+definition of twisted forms/torsors of algebraic structures (algebras!)
+
+example of matrix algebras and csas
+
+since same over $E/F$, differs by semilinear actions. definition of the
+standard semilinear action.
+
+if $B$ is a form of $A$, then we have $\psi: B \otimes E \overset\sim\to A \otimes E$
+moving the $G$-action on $B \otimes E$ through the isomorphism gives a 
+
+\subsection{Finite torsors and Galois extensions} 
 
 \subsection{$PGL_n$-torsors and central simple algebras}
 
