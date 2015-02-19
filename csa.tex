@@ -78,8 +78,16 @@
 
 \newcommand{\ind}{\oper{ind}}
 \newcommand{\per}{\oper{per}}
+\newcommand{\cores}{\oper{cor}}
 
 \newcommand{\Br}{\oper{Br}}
+\newcommand{\quat}[3]{
+  \left(\begin{matrix} #1, #2 \\ #3
+  \end{matrix}\right)
+}
+\newcommand{\symb}[3]{
+  \left(#1, #2\right)_{#3}
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % other stuff
@@ -1668,13 +1676,202 @@ moving the $G$-action on $B \otimes E$ through the isomorphism gives a
 
 \chapter{A second look at the Brauer group}
 
+\section{Corestriction}
+
+Let $L/F$ be a separable field extension and $A$ a $csa/L$. The
+\Xb{corestriction}, also called the norm, gives a way to associate to $A$ a
+new $csa/F$. This new algebra will be given naturally by descent -- that is
+to say, in order to define an $F$-algebra $B$, it is equivalent to find a
+Galois extension $E/F$, say with group $G$, and define an algebra $\til B$
+over $E$ with a semilinear action by $G$. These are then in bijection
+with $F$-algebras by associating to $\til B$ the algebra $\til B^G$.
+
+\subsection{Twisting algebras}
+
+A crucial tool in constructing the corestriction, is the notion of taking
+the Galois twist of an algebra.
+
+\begin{defn}
+Let $E/F$ be a field extension, $A$ and $E$-algebra, and $\sigma$ an
+automorphism of $E/F$. We define the $\sigma$-twist of $A$, denoted
+$^\sigma A$, to be the $E$-algebra, whose elements are given by
+\[ ^\sigma A = \{ {}^\sigma a \mid a \in A \} \]
+with the algebra structure given by requiring the map $a \to ^\sigma a$
+being an isomorhism of rings, and with
+\[ ^\sigma (\lambda a) = \sigma(\lambda) \ {}^\sigma a \]
+for $\lambda \in E$, $a \in A$.
+\end{defn}
+
+As the next example illustrates, we can think of this concretely as by using
+$\sigma$ to act on the structure constants of the algebra.
+
+\begin{ex}
+Let $F$ be a field of containing a primitive $n$'th root of unity $\rho$,
+let $E/F$ be a field extension and $\sigma$
+an automorphism of $E/F$. Choose $a, b \in E^*$.
+Consider the symbol algebra $A = \symb a b \rho$, and the twisted algebra
+$^\sigma A$. Then we have an isomorphism
+\[ ^\sigma \symb a b \rho \to \symb{\sigma(a)}{\sigma(b)}{\rho}. \]
+To see this, we suppose that $u, v$ are in $A$ with $vu = \rho uv$, $u^n =
+a, v^n = b$. We then have $^\sigma v \ ^\sigma u = \ ^\sigma(\rho uv) =
+^\sigma(\rho) \ ^\sigma u \ ^\sigma v = \rho \ ^\sigma u \ ^\sigma v$, and
+$(^\sigma u)^n = \ ^\sigma (u^n) = \ ^\sigma a = \sigma(a) \ ^\sigma 1 =
+\sigma(a)$, and similarly for $v$.
+\end{ex}
+
+\begin{lem}
+Suppose that $\sigma, \tau$ are automorphisms of $L/F$ and $A$ is an
+$L$-algebra. Then we have a canonical isomorphism
+\[ ^\sigma (^\tau A) \cong ^{\sigma\tau} A \]
+given by $^\sigma (^\tau a) \mapsto ^{\sigma\tau} a$.
+\end{lem}
+
+\begin{lem}
+Suppose that $\sigma$ is an automorphism of $L/F$ and $A, B$ are
+$L$-algebras. Then we have a canonical isomorphism
+\[^\sigma A \otimes \ ^\sigma B \cong {}^\sigma(A \otimes B) \]
+given by $^\sigma a \otimes ^\sigma b \mapsto ^\sigma(a \otimes b)$.
+\end{lem}
+
+\begin{lem}
+Suppose that $L/F$ is a field extension, $\sigma$ an automorphism of $L/F$,
+and $A$ an $F$-algebra. Then we have an isomorphism of $L$-algebras
+\[^\sigma(A \otimes L) \cong A \otimes L \]
+given by $^\sigma(a \otimes x) \mapsto a \otimes \sigma(x)$.
+\end{lem}
+
+\subsection{The case of a Galois extension}
+
+Although not strictly necessary, it is perhaps more intuitive to begin
+with the case $L/F$ is a Galois extension with group $G$, and $A/L$ is a
+$csa$. 
+
+In this case, we let $^G $ be the algebra
+\[^G A = \otimes_{\sigma \in G} \ ^\sigma A. \]
+
+Note that since each $^\sigma A$ is isomorphic as a ring to $A$, it is easy
+to see that they are central simple algebras. In particular, it also
+follows that $B$ is itself central simple.
+
+\begin{lem}
+The map $\Br(L) \to \Br(L)$ given by $A \mapsto {}^G A$ is a homomorphism of
+groups.
+\end{lem}
+\begin{proof}
+It follows from Lemma~\ref{} that the map $\Br(L) \to \Br(L)$ given by $[A]
+\mapsto [{}^\sigma A]$ is a homomorphism, and in particular the map
+\[\Br(L) \to \prod_{\sigma \in G} \Br(L) \]
+defined by $[A] \mapsto \left([{}^\sigma A]\right)_{\sigma \in G}$ is also
+a homomorphism. But, for any Abelian group $M$, the sum map
+$M^r \to M$ via $(m_1, \ldots, m_r) \mapsto \sum m_i$ is a homomorphism,
+and so in particular the composition
+\[\Br(L) \to \prod_{\sigma \in G} \Br(L) \overset\sigma\to \Br(L) \]
+is a homomorphism. But this composition is just the map $A \mapsto {}^G A$
+as desired.
+\end{proof}
+
+This new algebra $^G A$ comes equipped with a semiliear action of the
+Galois group $G$. Perhaps the easiest way to see this is as follows. Let us
+abuse notation and consider the algebras $^\sigma A$ as subalgebras of $^G
+A$ via the inclusion $x \mapsto 1 \otimes \cdots \otimes 1 \otimes x
+\otimes 1 \otimes \cdots \otimes 1$, where the entry $x$ occurs in the
+position defined by $\sigma$ (recall that the factors are indexed by the
+elements of $G$). By construction of the algebra $^G A$, such elements
+generate, and the images of $^\sigma A$ and $^\tau A$ commute in $^G A$
+whenever $\sigma \neq \tau$. We define
+\[\sigma(^\tau a) = ^{\sigma \tau} a. \] One may then check that this
+extends to define an action of $G$ on $^G A$ which is semilinear.
+
+\begin{defn}
+Let $A$ be a central simple $L$-algebra, where $L/F$ is $G$-Galois. We
+define the \Xb{corestriction} of $A$, denoted $\cores_{L/F} A$ to be given by 
+\[\cores_{L/F} A = \left({}^G A\right)^G.\]
+\end{defn}
+
+\begin{lem}
+The map $\cores_{L/F}$ induces a homomorphism $\Br(L) \to \Br(F)$.
+\end{lem}
+\begin{proof}
+This follows immediately from Lemma~\ref{}, together with the fact that the
+correspondence of Galois descent is compatible with the tensor product of
+algebras.
+\end{proof}
+
+\subsection{The non-Galois case}
+
+In general, we'd like to define $\cores_{L/F} A$ in case $L/F$ is separable,
+but not necessarily Galois. In this case, we start by choosing a Galois
+closure $E/F$ of $L$, so that $G = Gal(E/F)$ and $L = E^H$ for some
+subgroup $H < G$. Instead of considering a twist of the algebra $A$ by an
+element $\sigma \in G$, we instead wish to consider a twist of the algebra
+$A \otimes_L E$ by a coset $\sigma H \subset G/H$. Note that there is a
+natural action of $H$ on $A \otimes_L E$ via acting on the second
+coordinate, however this does not naturally extend to an action of $G$. To
+illustrate the problem, if $\sigma \in G \setminus H$, say $\sigma(x) \neq
+x$ for some $x \in L$, then one would find when trying to extend this
+definition:
+\[ a \otimes x = ax \otimes 1 = \sigma(a x \otimes 1) = \sigma (a \otimes
+x) = a \otimes \sigma(x) \]
+which would give a contradiction.
+
+\begin{defn}
+Let $^{\sigma H} A = \left\{ ^\tau a \mid a \in A \otimes_L E, \ \tau \in \sigma H \right\}/\sim$
+where $\sim$ is the equivalence relation described by
+\[ {}^\tau a \sim {}^\gamma b \iff \gamma^{-1} \tau a = b \]
+\end{defn}
+
+\todo{etcetera...}
+
+\begin{prop}
+Suppose that $A$ is an $F$ algebra and $L/F$ is a separable field extension
+of degree $n$. Then $\cores_{L/F}(A \otimes L)$ is Brauer equivalent to
+$A^{\otimes n}$.
+\end{prop}
+\begin{proof}
+This follows from the fact that we may identify $^{G/H} A$ with $(A
+\otimes_F E)^{\otimes n} \cong A^{\otimes n} \otimes_{F} E$ together with
+its natural semilinear Galois action.
+\end{proof}
+
+As a corollary, we have yet another proof of the fact that the period of
+$A$ divides its index, if we consider the case that $L/F$ is a maximal
+subfield of the underlying division algebra of $A$.
+
 \section{Primary decomposition}
+
+\section{Cyclic Algebras}
 
 \section{Albert's criterion for cyclicity}
 
 \section{Algebras of degree $3$ are cyclic}
 
 \chapter{Involutions}
+
+\section{Bilinear forms and adjoint involutions}
+
+The notion of an involution on a central simple algebra is a generalization
+of the notion of a transpose of a matrix. As one learns in linear algebra,
+the transpose of a matrix is intimitely connected to the idea of the
+standard inner product of vectors, as is illustrated by the multiplication
+of a row and a column matrix. That is, when we define for a pair of column
+vectors $x, y$ in $F^n$,
+\[ x \cdot y = x^t y, \]
+we find that for any linear transformation $T$, we have
+\[ x \cdot Ty = x^t T y = (T^t x)^t y = T^t x \cdot y.\]
+In other words, the linear transformation ``moves across'' the inner
+product by taking its transpose. In fact, this equation completely
+determines the transpose operation as one may check.
+
+In general, if $b : V \times V \to F$ is a symmetric or skew symmetric
+bilinear form, we say that $b$ is nondegenerate if for every $v \in V
+\setminus \{0\}$, we have $v \mapsto b(\_, v)$ induces an isomorphism $V
+\to V^*$ between $V$ and its dual. In this case, for a linear
+transformation $T$, we can consider the functional
+\[ v \mapsto b(v, T(\_)) \in F .\]
+By nondegeneracy, this must also have the form $b(\_, w)$ for some $w \in
+V$. Generalizing the prior discussion with the transpose, we define
+$adj_b(T)$ by $adj_b(T)(v) = w$. 
+
 \iffalse
 
 \todo{open questions on the existence of nonmaximal subfields}
