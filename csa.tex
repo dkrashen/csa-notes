@@ -1400,6 +1400,24 @@ the group $\Br(F)$.
 We will show later that the period of any element of the Brauer group is in
 fact finite and must divide the index of the element.
 
+A useful and important fact about the Brauer group is that field extensions
+induce homomorphisms on the Brauer groups.
+
+\begin{prop} \label{proposition-brauer-group-a-functor-on-fields}
+Suppose that $E/F$ is a field extension. Then the map
+\begin{align*}
+\Br(F) &\to \Br(E) \\
+[A] &\mapsto [A \otimes E]
+\end{align*}
+defines a homomorphism of groups.
+\end{prop}
+\begin{proof}
+It is easy to check that this map is well defined on Brauer equivalence
+classes. The fact that it is a homomorphism comes from the properties of
+the tensor product \ref{write them down}:
+\[(A \otimes B) \otimes E \cong (A \otimes E) \otimes_E (B \otimes E). \]
+\end{proof}
+
 \subsection{Idempotents and Brauer equivalence}
 
 Suppose that $A$ is a $csa/F$ and $e \in A$ is an idempotent element. By
@@ -1427,7 +1445,8 @@ $A$ as claimed.
 \section{Maximal Subfields}
 
 \subsection{Splitting fields are maximal subfields}
-\begin{prop}
+
+\begin{prop} \label{proposition-splitting-fields-are-maximal-subfields}
 Suppose that $E/F$ is a finite field extension and $A/F$ is a central
 simple $F$ algebra which is split by $E$, and such that $\deg A = [E:F]$.
 Then $E$ is isomorphic to a maximal subfield of $A$.
@@ -1453,11 +1472,30 @@ have noted $E \subset A'$, and so $E$ is isomorphic to a maximal subfield
 of $A$ as claimed.
 \end{proof}
 
+\subsection{The index via splitting fields}
+
 \begin{prop} \label{proposition-index-via-splitting-fields}
 Let $A$ be a central simple algebra. Then
 \[\ind(A) = \gcd\{[E:F] \mid A \otimes E \text{ is split }\} = \min\{[E:F]
 \mid A \otimes E \text{ is split }\}.\]
+Further, the equalities remain when taken in each case over finite
+\textbf{separable} field extensions.
 \end{prop}
+\begin{proof}
+To check these equalities, it suffices to assume that $A$ is a division
+algebra, since splitting is actually a measure of the Brauer class, and not
+a particular representative algebra. By
+Proposition~\ref{proposition-splitting-fields-are-maximal-subfields}, we
+know that every such splitting field is isomorphic to a maximal subfield of
+some $csa$ Brauer equivalent to $A$. Since $A$ is division, this means such
+a splitting field $E$ must be maximal in $M_m(A)$ for some $m$, and in
+particular, $[E:F] = m \ind(A)$. This tells us that every splitting field
+has degree a multiple of the index, and so is suffices to show that the
+minimal such degree is exactly $\ind(A)$, and not larger. But we know that
+since every division algebra has a maximal separable subfield by
+Proposition~\todo{(in prior lecture, not yet entered)}, the desired minimum
+value is obtained, and is in fact obtained by a separable field extension.
+\end{proof}
 
 \chapter{Galois theory and crossed products}
 
