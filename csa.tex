@@ -1344,6 +1344,14 @@ giving us $\dim_F(A) = \dim_F(B) \dim_F(C_A(B))$ as desired.
 
 \end{proof}
 
+\todo{stuff showing that centralizers of subfields are central simple and
+are equivalent to tensoring with the subfield}
+
+\begin{cor} \label{corollary-degree-of-centralizer-of-a-subfield-of-a-csa}
+Suppose that $A$ is a central simple algebra and $L \subset A$ is a
+subfield. Then $\deg(A) = \deg(C_A(L)) [L:F]$.
+\end{cor}
+
 \subsection{The Brauer Group}
 
 \begin{defn}
@@ -1418,7 +1426,38 @@ $A$ as claimed.
 
 \section{Maximal Subfields}
 
-Suppose that $E/F$ is a 
+\subsection{Splitting fields are maximal subfields}
+\begin{prop}
+Suppose that $E/F$ is a finite field extension and $A/F$ is a central
+simple $F$ algebra which is split by $E$, and such that $\deg A = [E:F]$.
+Then $E$ is isomorphic to a maximal subfield of $A$.
+\end{prop}
+\begin{proof}
+Let $n = [E:F] = \deg(A)$. The action of $E$ on itself via left
+multiplication gives an injective homomorphism
+\[E \to End_F(E) \cong M_n(F),\]
+and in particular, an injection $E \to A \otimes M_n(F)$.
+Since $A \otimes E$ is a split algebra, so is $A \otimes M_n(F) \otimes E$,
+and therefore by Lemma~\ref{
+centralizer-of-a-subfield-equivalent-to-tensor}, it follows
+that $B = C_{A \otimes M_n(F)}(E)$ is a split algebra. By
+Corollary~\ref{corollary-degree-of-centralizer-of-a-subfield-of-a-csa}, we
+have $\deg(B) = n$, and consequently $B \cong M_n(E)$. Choose a subalgebra
+$M_n(F) \cong B' \subset B \subset A \otimes M_n(F)$. By definition $E
+\subset C_{A \otimes M_n(F)}(B) \subset C_{A \otimes M_n(F)}(B') = A'$.
+Since $B'$ is a split algebra, by the
+double centralizer theorem \ref{which one?}, we have $A'$ is Brauer
+equivalent to $A$. By the double centralizer theorem \ref{which other
+one?}, we also have $\deg(A') = \deg(A)$, and so $A' \cong A$. But as we
+have noted $E \subset A'$, and so $E$ is isomorphic to a maximal subfield
+of $A$ as claimed.
+\end{proof}
+
+\begin{prop} \label{proposition-index-via-splitting-fields}
+Let $A$ be a central simple algebra. Then
+\[\ind(A) = \gcd\{[E:F] \mid A \otimes E \text{ is split }\} = \min\{[E:F]
+\mid A \otimes E \text{ is split }\}.\]
+\end{prop}
 
 \chapter{Galois theory and crossed products}
 
