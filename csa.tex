@@ -89,6 +89,8 @@
   \left(#1, #2\right)_{#3}
 }
 
+\newcommand{\lcm}{\oper{lcm}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % other stuff
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1497,6 +1499,81 @@ Proposition~\todo{(in prior lecture, not yet entered)}, the desired minimum
 value is obtained, and is in fact obtained by a separable field extension.
 \end{proof}
 
+It will be useful later to record the following lemmas:
+
+\begin{lem}
+Suppose $A$ is a $csa/F$ and $L/F$ is an arbitrary field extension. Then
+$\ind(A \otimes_F L) | \ind(A)$.
+\end{lem}
+\begin{proof}
+This follows from Proposition~\ref{proposition-index-via-splitting-fields},
+and the fact that if $E/F$ is a splittinf field for $A$, then the a
+compositum $LE$ is a splitting field for $A \otimes L$ with $[LE: L] |
+[E:F]$.
+\end{proof}
+
+\begin{lem} \label{index restriction}
+Suppose that $A/F$ is a $csa$ and $L/F$ is a finite field extension. Then
+$\ind A | \ind (A \otimes L) [L:F]$.
+\end{lem}
+\begin{proof}
+Let $E/L$ be a splitting field of $A \otimes L$. Then $E/F$ is a splitting
+field for $A$ of degree $[E:F] =[E:L][L:F]$. In particular, choosing $E$ to
+be a minimal such splitting field, we have $\ind(A) | [E:F] = \ind(A
+\otimes L) [L:F]$.
+\end{proof}
+
+\begin{cor} \label{rel prime index}
+Suppose that $A/F$ is a $csa$ and $L/F$ is a finite field extension 
+$[L:F]$ relatively prime to $\deg A$. Then $\ind A = \ind A \otimes L$.
+\end{cor}
+
+\begin{lem} \label{same prime factors}
+Suppose that $A/F$ is a $csa$ and $p$ is a prime number dividing the index
+of $A$. Then $p$ divides the period of $A$. Consequently, $\per(A)$ and
+$\ind(A)$ have the same prime divisors.
+\end{lem}
+\begin{proof}
+Choose a separable splitting field $E/F$ of $A$ of degree $[E:F] =
+\ind(A)$, and let $L/F$ be a Galois closure of $E/F$, say with Galois group
+$G$. Let $P < G$ be a $p$-Sylow subgroup, and $K = E^P$ be the fixed field.
+By Lemma~\ref{index restriction} we know that $\ind(A) | \ind(A_K) [K:F]$,
+and since $p | \ind(A)$ and $p \not| [K:F]$, it follows that $p |
+\ind(A_K)$. Since $E/K$ is a $p$-power extension splitting $A_K$, we have
+$\ind(A_K)$ is therefore a nontrivial $p$-power. Since $\per(A_K) |
+\ind(A_K)$ by Proposition~\ref{period divides index}, it is also a
+$p$-power, and a nontrivial $p$-power since $\ind(A_K)$ is nontrivial,
+implying that $A_K$ is not split. It therefore follows that $p | \per(A_K)
+| \per(A)$ as claimed.
+\end{proof}
+
+\begin{lem} \label{rel prime division}
+Suppose that $D_1, D_2$ are central simple $F$-algebras.  Then 
+\[\ind(D_1 \otimes D_2) | \ind(D_1) \ind(D_2).\]
+Further, if $D_1$ and $D_2$ are have relatively prime indices, then
+$\ind(D_1 \otimes D_2) = \ind(D_1) \ind(D_2)$. In particular, if $D_1, D_2$
+are division algebras then so is $D_1 \otimes D_2$.
+\end{lem}
+\begin{proof}
+Without loss of generality, we may assume that the algebras are division.
+
+The fact that $\ind(D_1 \otimes \ind D_2)| \ind(D_1) \ind(D_2)$ follows
+from noticing that if $E_i$ is a separable maximal subfield of $D_i$, then
+any compositum $E_1 E_2$ will also split $D_1 \otimes D_2$, and will have a
+degree dividing $\ind(D_1) \ind(D_2)$.
+
+For the other divisibility statement, suppose that $E/F$ is a maximal
+subfield of $D_1 \otimes D_2$. Since by Lemma~\ref{same prime factors},
+$\per(D_1)$ and $\per(D_2)$ are relatively prime, we may write $1 =
+a\per(D_1) + b\per(D_2)$. It follows that
+\[ 0 = a \per(D_1)[(D_1 \otimes D_2)) \otimes E] = (a \per(D_1))[D_2
+\otimes E] = (1 - b \per(D_2))[D_2 \otimes E] = [D_2 \otimes E]\]
+showing that $E/F$ splits $D_2$ and similarly $D_1$. By
+Proposition~\ref{proposition-index-via-splitting-fields}, it follows that
+$\ind(D_i) | [E: F]$, and since they are relatively prime $\ind(D_1)
+\lcm(D_2) = [E:F] = \ind(D_1 \otimes D_2)$ as claimed.
+\end{proof}
+
 \chapter{Galois theory and crossed products}
 
 \section{Quaternions, symbols and cyclics}
@@ -1929,10 +2006,6 @@ This follows from the fact that we may identify $^{G/H} A$ with $(A
 its natural semilinear Galois action.
 \end{proof}
 
-As a corollary, we have yet another proof of the fact that the period of
-$A$ divides its index, if we consider the case that $L/F$ is a maximal
-subfield of the underlying division algebra of $A$.
-
 \section{Primary decomposition}
 
 \subsection{Abstract primary decomposition}
@@ -1959,17 +2032,12 @@ subgroup, and where $m_i$ has order exactly $q_i$.
 
 Let's apply the ideas of the previous section specifically to the Brauer
 group. Suppose that $D$ is a central division algebra of degree $n$ and
-suppose that $n = q_1 \cdots q_r$ with the $q_i$ relatively prime prime
-powers. As before, we can write the class $[D] \in Br(F)$ as $[D] = [D_1] +
-\cdots + [D_r]$ where each $D_i$ is a division algebra whose period is
-$q_i$.
-
-It is immediate that the product of the indices of the $D_i$ must be no
-smaller than the index of $D$. Indeed, since $D_1 \otimes \cdots D_r$ is
-Brauer equivalent to $D$, and $D$ is a division algebra, it follows that
-the index of the tensor product of the $D_i$'s must have degree at least as
-large as the index of $D$. Conversely, we claim that the index of the
-tensor product is no larger than the index of $D$. 
+suppose that $n = q_1 \cdots q_r$ with the $q_i = p_i^{e_i}$ relatively
+prime prime powers. As before, we can write the class $[D] \in Br(F)$ as
+$[D] = [D_1] + \cdots + [D_r]$ where each $D_i$ is a division algebra whose
+period is $q_i$. 
+It follows from Lemma~\ref{same prime factors}, that $\ind(D_i)$ is also of
+the form $p^i{m_i}$ for some $m_i \geq e_i$. 
 
 \section{Cyclic Algebras}
 
